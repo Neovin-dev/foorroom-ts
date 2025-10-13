@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="shortcut icon" href="img/image1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Bitcount+Single+Ink:wght@100..900&family=Blinker:wght@100;200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="page-container">
+            <div class="main-container">
+                <div class="info-panel">
+                    <img src="img/electron-rotating-1.gif" alt="Decorative Animation" class="info-gif">
+                    <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat;">Search Tap</h2>
+                    <p>Fast and relevant search solution for small, medium or entreprise level e-commerce websites and mobile apps.</p>
+                </div>
+
+                <div class="form-panel">
+                    <div class="form-container-Mform">
+                        <h3 style="font-weight: 900; font-style: italic; font-size: 28px;">Registration <span style="color: whitesmoke; font-weight: 500; font-size: 20px; font-family: Poppins, system-ui">Form</span></h3>
+
+                        <form id="Mform">
+
+                            <div class="row-view">
+                                <div class="ele-container">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+                                </div>
+                                <div class="ele-container">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+                                </div>
+                            </div>
+
+                            <div class="row-view">
+                                <div class="ele-container">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" id="dob" name="dob" required>
+                                </div>
+                                <div class="ele-container">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your Email Address" required>
+                                </div>
+                            </div>
+
+                            <div class="row-view">
+                                <div class="gender-container">
+                                    <h4>Gender</h4>
+                                    <div class="gender-row-category">
+                                        <label class="gender-category">Male
+                                            <input type="radio" name="gender" id="gender-cat-1" required>
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                        <label class="gender-category">Female
+                                            <input type="radio" name="gender" id="gender-cat-2">
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                        <label class="gender-category">Others
+                                            <input type="radio" name="gender" id="gender-cat-3">
+                                            <span class="custom-radio"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="ele-container">
+                                    <label for="telenum">Phone number</label>
+                                    <input type="tel" id="telenum" name="telenum" placeholder="Enter your Phone Number" required>
+                                </div>
+                            </div>
+
+                            <div class="row-view">
+                                <div class="subject-container">
+                                    <h4>Subjects</h4>
+                                    <div class="subject-row-category">
+                                        <div class="categories subject-category">
+                                            <label for="maths">Maths
+                                                <input type="checkbox" name="maths" id="maths">
+                                                <span class="custom-checkbox"></span>
+                                            </label>
+                                        </div>
+                                        <div class="categories subject-category">
+                                            <label for="english">English
+                                                <input type="checkbox" name="english" id="english">
+                                                <span class="custom-checkbox"></span>
+                                            </label>
+                                        </div>
+                                        <div class="categories subject-category">
+                                            <label for="french">French
+                                                <input type="checkbox" name="french" id="french">
+                                                <span class="custom-checkbox"></span>
+                                            </label>
+                                        </div>
+                                        <div class="categories subject-category">
+                                            <label for="history">History
+                                                <input type="checkbox" name="history" id="history">
+                                                <span class="custom-checkbox"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ele-container">
+                                    <label for="exam">Exam Center</label>
+                                    <select name="exam" id="exam">
+                                        <option value="">-- Choose a exam center --</option>
+                                        <option value="Noida">Noida</option>
+                                        <option value="Delhi Ncr">Delhi NCR</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div id="button-container">
+                                <button class="button-register button-register-width" type="submit">
+                                Register
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
+                    <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px;font-family: Bitcount Single Ink, system-ui;">Filter <span style="color: whitesmoke; font-weight: 500; font-size: 18px;font-family: Poppins, system-ui;">Menu</span></h3>
+                        <div class="subject-filter-container">
+                            <div class="row-filter-align">
+                                <h4>Gender</h4>
+                                <div class="subject-row-category">
+                                    <div class="categories subject-category">
+                                        <label for="gender-male">Male
+                                            <input type="checkbox" name="gender" id="gender-male" value="Male">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="gender-female">Female
+                                            <input type="checkbox" name="gender" id="gender-female" value="Female">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="gender-others">Others
+                                            <input type="checkbox" name="gender" id="gender-others" value="Others">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subject-filter-container">
+                            <div class="row-filter-align">
+                                <h4>Subjects</h4>
+                                <div class="subject-row-category">
+                                    <div class="categories subject-category">
+                                        <label for="subject-maths">Maths
+                                            <input type="checkbox" name="subject" id="subject-maths" value="Maths">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="subject-english">English
+                                            <input type="checkbox" name="subject" id="subject-english" value="English">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="subject-french">French
+                                            <input type="checkbox" name="subject" id="subject-french" value="French">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="subject-history">History
+                                            <input type="checkbox" name="subject" id="subject-history" value="History">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subject-filter-container">
+                            <div class="row-filter-align">
+                                <h4>Exam Center</h4>
+                                <div class="subject-row-category">
+                                    <div class="categories subject-category">
+                                        <label for="center-noida">Noida
+                                            <input type="checkbox" name="center" id="center-noida" value="Noida">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="center-delhi">Delhi NCR
+                                            <input type="checkbox" name="center" id="center-delhi" value="Delhi NCR">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                    <div class="categories subject-category">
+                                        <label for="center-mumbai">Mumbai
+                                            <input type="checkbox" name="center" id="center-mumbai" value="Mumbai">
+                                            <span class="custom-checkbox"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="apply-clear-bar" style="text-align: center; margin-top: 20px;">
+                            <button id="apply-filter-button" class="button-register" type="button" style="margin-right: 10px; min-width: 60px;">Apply</button>
+                            <button id="clear-filter-button" class="button-register" type="button" style="min-width: 60px;">Clear</button>
+                        </div>
+
+                </div>
+
+                
+                <div class="form-container-form table deactive-style" id="tableItself">
+                    <div class="form-header">
+                            <div class="form-sort-filter-bar">
+                                <div class="form-heading">
+                                    <h3 style="font-weight: 900; font-style: italic; font-size: 32px; padding-left: 20px;font-family: Bitcount Single Ink, system-ui;">Registration <span style="color: whitesmoke; font-weight: 500; font-size: 22px;font-family: Poppins, system-ui;">Data</span></h3>
+                                </div>
+                                <div id="sort-filter-visible">
+                                    <div id="sort-bar" class="deactive-style">
+                                        <div class="dropdown" id="sort-select">
+                                            <input type="checkbox" id="my-dropdown" value="">
+                                            <label for="my-dropdown" data-toggle="dropdown"> <img src="img/sort_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""> </label>
+                                            <ul id="sort-menu">
+                                                <li><a href="#" data-sort="A-Z">Name (A-Z) </a></li>
+                                                <li><a href="#" data-sort="Z-A">Name (Z-A) </a></li>
+                                                <li><a href="#" data-sort="O-Y">Age (Desc) </a></li>
+                                                <li><a href="#" data-sort="Y-O">Age (ASC) </a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div id="filter-bar" class="deactive-style">
+                                        <button id="filter-button" class="button-register" type="submit">
+                                            <img src="img/filter_alt_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="table-container-div">
+                        <table id="table-container">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>D.O.B</th>
+                                    <th>Email</th>
+                                    <th>Mobile no.</th>
+                                    <th>Exam Center</th>
+                                    <th>Gender</th>
+                                    <th>Subjects</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- injection here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- <div id="button-container" style="display: none;">
+                        <button class="button-register" type="submit">
+                            <img src="img/edit_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                        </button>
+                        <button id="delete-button" class="button-register" type="submit">
+                            <img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                        </button>
+                    </div> -->
+                </div>
+            </div>
+    
+
+
+    <button id="refreshButton" alt="reset">
+        <img src="img/refresh_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg">
+    </button>
+
+    <div id="overlay-backdrop" class="inactive"></div>
+
+    <!-- <div id="mobile-filter-overlay" class="inactive">
+        <div class="mobile-sort-header">
+            <span>Filters</span>
+            <button id="close-filter-btn" class="close-btn">✕</button>
+        </div>
+
+        <div class="filter-categories-mobile">
+
+            <div class="filter-categories">
+                <div id="genderListnerMobile" class="filter-category-wrapper">
+                    <div class="filter-category-header">
+                        <span class="filter-heading-category">Gender</span>
+                        <span>
+                            <img id="rotating-icon-gender" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
+                        </span>
+                    </div>
+                </div>
+                <div id="scrollable-side-bar-gender-mobile" class="filter-categories scrollable-container inactive">
+                    <div class="subject-row-category">
+                        <div class="categories subject-category">
+                            <label for="gender-male">Male
+                                <input type="checkbox" name="gender" id="gender-male" value="Male">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="gender-female">Female
+                                <input type="checkbox" name="gender" id="gender-female" value="Female">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="gender-others">Others
+                                <input type="checkbox" name="gender" id="gender-others" value="Others">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-categories">
+                <div id="subjectsListnerMobile" class="filter-category-wrapper">
+                    <div class="filter-category-header">
+                        <span class="filter-heading-category">Subjects</span>
+                        <span>
+                            <img id="rotating-icon-subjects" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
+                        </span>
+                    </div>
+                </div>
+                <div id="scrollable-side-bar-subjects-mobile" class="filter-categories scrollable-container inactive">
+                    <div class="subject-row-category">
+                        <div class="categories subject-category">
+                            <label for="subject-maths">Maths
+                                <input type="checkbox" name="subject" id="subject-maths" value="Maths">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="subject-english">English
+                                <input type="checkbox" name="subject" id="subject-english" value="English">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="subject-french">French
+                                <input type="checkbox" name="subject" id="subject-french" value="French">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="subject-history">History
+                                <input type="checkbox" name="subject" id="subject-history" value="History">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-categories">
+                <div id="examCenterListnerMobile" class="filter-category-wrapper">
+                    <div class="filter-category-header">
+                        <span class="filter-heading-category">Exam Center</span>
+                        <span>
+                            <img id="rotating-icon-exam-center" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
+                        </span>
+                    </div>
+                </div>
+                <div id="scrollable-side-bar-exam-center-mobile" class="filter-categories scrollable-container inactive">
+                    <div class="subject-row-category">
+                        <div class="categories subject-category">
+                            <label for="center-noida">Noida
+                                <input type="checkbox" name="center" id="center-noida" value="Noida">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="center-delhi">Delhi NCR
+                                <input type="checkbox" name="center" id="center-delhi" value="Delhi NCR">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                        <div class="categories subject-category">
+                            <label for="center-mumbai">Mumbai
+                                <input type="checkbox" name="center" id="center-mumbai" value="Mumbai">
+                                <span class="custom-checkbox"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; padding: 20px;">
+            <button id="apply-filter-button" class="button-register" type="button" style="margin-right: 10px; min-width: 60px;">Apply</button>
+            <button id="clear-filter-button" class="button-register" type="button" style="min-width: 60px;">Clear</button>
+        </div>
+
+    </div> -->
+
+
+    <script src="script.js"></script>
+    <script src="three.r134.min.js"></script>
+    <script src="vanta.fog.min.js"></script>
+    <script>
+    VANTA.FOG({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    highlightColor: 0xa300ff,
+    midtoneColor: 0xf2ff,
+    lowlightColor: 0x7b2adb
+    })
+    </script>
+</body>
+</html>

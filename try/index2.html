@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="shortcut icon" href="img/image1.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h3>Registration Form</h3>
+
+        <form class="form">
+
+            <!-- first-name -->
+            <div class="ele-container">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+            </div>
+            <!-- last-name -->
+            <div class="ele-container">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+            </div>
+            <!-- Email -->
+            <div class="ele-container">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email Address" required>
+            </div>
+            <!-- password -->
+            <div class="ele-container">
+                <label for="pword">Password</label>
+                <input type="password" id="pword" name="pword" placeholder="Enter your Password" required>
+            </div>
+            <!-- date-of-birth -->
+            <div class="ele-container">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <!-- Tele No -->
+            <div class="ele-container">
+                <label for="telenum">Telephone number</label>
+                <input type="tel" id="telenum" name="telenum" placeholder="Enter your Number" required>
+            </div>
+
+
+            <div class="gender-container">
+                <label for="gender-title">Gender</label>
+
+                <div class="row-category">
+                    <div class="gender-category">
+                        <input type="radio" name="gender-cat" id="gender-cat-1">
+                        <label for="gender-cat-1">  Male</label>
+                    </div>
+                    <div class="gender-category">
+                        <input type="radio" name="gender-cat" id="gender-cat-2">
+                        <label for="gender-cat-2">  Female</label>
+                    </div>
+                    <div class="gender-category">
+                        <input type="radio" name="gender-cat" id="gender-cat-3">
+                        <label for="gender-cat-3">  Prefer not to say</label>
+                    </div>
+                </div>
+                
+            </div>
+
+            <button class="button-register" type="submit">Register</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
