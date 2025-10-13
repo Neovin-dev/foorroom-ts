@@ -30,7 +30,7 @@
             <div class="main-container">
                 <div class="info-panel">
                     <img src="img/electron-rotating-1.gif" alt="Decorative Animation" class="info-gif">
-                    <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat;">Search Tap</h2>
+                    <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat;">SearchTap</h2>
                     <p>Fast and relevant search solution for small, medium or entreprise level e-commerce websites and mobile apps.</p>
                 </div>
 
@@ -300,24 +300,41 @@
 
     <div id="overlay-backdrop" class="inactive"></div>
 
-    <!-- <div id="mobile-filter-overlay" class="inactive">
-        <div class="mobile-sort-header">
-            <span>Filters</span>
-            <button id="close-filter-btn" class="close-btn">✕</button>
+    <div class="mobile-fixed-buttons">
+        <button class="sort-overlay">Sort</button>
+        <button class="filters-overlay">Filters</button>
+    </div>
+
+    <div id="sort-overlay" class="mobile-overlay">
+        <div class="overlay-backdrop"></div>
+        <div class="overlay-panel sort-panel">
+            <div class="sort-header">
+                <h3>Sort By</h3>
+                <button class="close-btn">
+                    X
+                </button>
+            </div>
+            <ul>
+                <li>Name (A-Z)</li>
+                <li>Name (Z-A)</li>
+                <li>Age (Oldest-Youngest)</li>
+                <li>Age (Youngest-Oldest)</li>
+            </ul>
         </div>
+    </div>
 
-        <div class="filter-categories-mobile">
-
-            <div class="filter-categories">
-                <div id="genderListnerMobile" class="filter-category-wrapper">
-                    <div class="filter-category-header">
-                        <span class="filter-heading-category">Gender</span>
-                        <span>
-                            <img id="rotating-icon-gender" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
-                        </span>
-                    </div>
-                </div>
-                <div id="scrollable-side-bar-gender-mobile" class="filter-categories scrollable-container inactive">
+    <div id="filters-overlay" class="mobile-overlay">
+        <div class="overlay-backdrop"></div>
+        <div class="overlay-panel filters-panel">
+            <div class="sort-header">
+                <h3>Filters</h3>
+                <button class="close-btn">
+                    X
+                </button>
+            </div>
+            <div class="subject-filter-container">
+                <div class="row-filter-align">
+                    <h4>Gender</h4>
                     <div class="subject-row-category">
                         <div class="categories subject-category">
                             <label for="gender-male">Male
@@ -341,16 +358,9 @@
                 </div>
             </div>
 
-            <div class="filter-categories">
-                <div id="subjectsListnerMobile" class="filter-category-wrapper">
-                    <div class="filter-category-header">
-                        <span class="filter-heading-category">Subjects</span>
-                        <span>
-                            <img id="rotating-icon-subjects" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
-                        </span>
-                    </div>
-                </div>
-                <div id="scrollable-side-bar-subjects-mobile" class="filter-categories scrollable-container inactive">
+            <div class="subject-filter-container">
+                <div class="row-filter-align">
+                    <h4>Subjects</h4>
                     <div class="subject-row-category">
                         <div class="categories subject-category">
                             <label for="subject-maths">Maths
@@ -380,16 +390,9 @@
                 </div>
             </div>
 
-            <div class="filter-categories">
-                <div id="examCenterListnerMobile" class="filter-category-wrapper">
-                    <div class="filter-category-header">
-                        <span class="filter-heading-category">Exam Center</span>
-                        <span>
-                            <img id="rotating-icon-exam-center" src="img/arrow_drop_up_24dp_222222_FILL0_wght400_GRAD0_opsz24.svg" alt="toggle section">
-                        </span>
-                    </div>
-                </div>
-                <div id="scrollable-side-bar-exam-center-mobile" class="filter-categories scrollable-container inactive">
+            <div class="subject-filter-container">
+                <div class="row-filter-align">
+                    <h4>Exam Center</h4>
                     <div class="subject-row-category">
                         <div class="categories subject-category">
                             <label for="center-noida">Noida
@@ -412,15 +415,13 @@
                     </div>
                 </div>
             </div>
-            
-        </div>
-        
-        <div style="text-align: center; padding: 20px;">
-            <button id="apply-filter-button" class="button-register" type="button" style="margin-right: 10px; min-width: 60px;">Apply</button>
-            <button id="clear-filter-button" class="button-register" type="button" style="min-width: 60px;">Clear</button>
-        </div>
 
-    </div> -->
+            <div class="apply-clear-bar" style="text-align: center; margin-top: 20px;">
+                <button id="apply-filter-button" class="button-register" type="button" style="margin-right: 10px; min-width: 60px;">Apply</button>
+                <button id="clear-filter-button" class="button-register" type="button" style="min-width: 60px;">Clear</button>
+            </div>
+        </div>
+    </div>
 
 
     <script src="script.js"></script>
