@@ -13,24 +13,30 @@
 </head>
 
 <body>
-        <div class="background">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+        <div class="header">
+            <div class="logo">
+                <img onclick="location.reload()" src="img/logo-light-with-logo.png" alt="">
+            </div>
         </div>
 
         <div class="page-container">
             <div class="main-container">
                 <div class="info-panel">
                     <img src="img/electron-rotating-1.gif" alt="Decorative Animation" class="info-gif">
-                    <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat;">SearchTap</h2>
+                    <h2 style="font-weight: 900; font-style: italic; font-size: 28px; color: wheat;"><img src="img/logo-light.png" style="max-width: 200px;" alt=""></h2>
                     <p>Fast and relevant search solution for small, medium or entreprise level e-commerce websites and mobile apps.</p>
                 </div>
 
@@ -62,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="row-view">
+                            <div class="row-view row-view-gender-phone-no">
                                 <div class="gender-container">
                                     <h4>Gender</h4>
                                     <div class="gender-row-category">
@@ -138,7 +144,7 @@
             </div>
             <div class="table-wrapper">
                 <div id="filter-containers" class="filter-wrapper form-container-form-1 deactive-style">
-                    <h3 style="font-weight: 900; font-style: italic; font-size: 25px; padding-left: 20px;font-family: Bitcount Single Ink, system-ui;">Filter <span style="color: whitesmoke; font-weight: 500; font-size: 18px;font-family: Poppins, system-ui;">Menu</span></h3>
+                    <h3 style="font-weight: 900; font-style: italic; font-size: 25px;">Filter <span style="color: whitesmoke; font-weight: 500; font-size: 18px;font-family: Poppins, system-ui;">Menu</span></h3>
                         <div class="subject-filter-container">
                             <div class="row-filter-align">
                                 <h4>Gender</h4>
@@ -235,7 +241,7 @@
                     <div class="form-header">
                             <div class="form-sort-filter-bar">
                                 <div class="form-heading">
-                                    <h3 style="font-weight: 900; font-style: italic; font-size: 32px; padding-left: 20px;font-family: Bitcount Single Ink, system-ui;">Registration <span style="color: whitesmoke; font-weight: 500; font-size: 22px;font-family: Poppins, system-ui;">Data</span></h3>
+                                    <h3 style="font-weight: 900; font-style: italic; font-size: 32px; ">Registration <span style="color: whitesmoke; font-weight: 500; font-size: 22px;font-family: Poppins, system-ui;">Data</span></h3>
                                 </div>
                                 <div id="sort-filter-visible">
                                     <div id="sort-bar" class="deactive-style">
@@ -291,21 +297,22 @@
                     </div> -->
                 </div>
             </div>
-    
+        </div>
 
 
     <button id="refreshButton" alt="reset">
         <img src="img/refresh_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg">
     </button>
 
-    <div id="overlay-backdrop" class="inactive"></div>
+    <!-- <div id="overlay-backdrop" class="inactive"></div> -->
 
     <div class="mobile-fixed-buttons">
-        <button class="sort-overlay">Sort</button>
-        <button class="filters-overlay">Filters</button>
+        <div class="filters-overlay">Filters</div>
+        <div class="sort-overlay">Sort</div>
+        
     </div>
 
-    <div id="sort-overlay" class="mobile-overlay">
+    <!-- <div id="sort-overlay" class="mobile-overlay">
         <div class="overlay-backdrop"></div>
         <div class="overlay-panel sort-panel">
             <div class="sort-header">
@@ -335,7 +342,7 @@
             <div class="subject-filter-container">
                 <div class="row-filter-align">
                     <h4>Gender</h4>
-                    <div class="subject-row-category">
+                    <div class="filter-subject-row-category">
                         <div class="categories subject-category">
                             <label for="gender-male">Male
                                 <input type="checkbox" name="gender" id="gender-male" value="Male">
@@ -358,7 +365,7 @@
                 </div>
             </div>
 
-            <div class="subject-filter-container">
+            <div class="filter-subject-row-category">
                 <div class="row-filter-align">
                     <h4>Subjects</h4>
                     <div class="subject-row-category">
@@ -390,7 +397,7 @@
                 </div>
             </div>
 
-            <div class="subject-filter-container">
+            <div class="filter-subject-row-category">
                 <div class="row-filter-align">
                     <h4>Exam Center</h4>
                     <div class="subject-row-category">
@@ -421,24 +428,10 @@
                 <button id="clear-filter-button" class="button-register" type="button" style="min-width: 60px;">Clear</button>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="script.js"></script>
-    <script src="three.r134.min.js"></script>
-    <script src="vanta.fog.min.js"></script>
-    <script>
-    VANTA.FOG({
-    el: "body",
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: 0xa300ff,
-    midtoneColor: 0xf2ff,
-    lowlightColor: 0x7b2adb
-    })
-    </script>
+
 </body>
 </html>

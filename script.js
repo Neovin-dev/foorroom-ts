@@ -148,6 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let firstnameValue = firstname.value.trim();
+        console.log("firstname", firstname);
+        console.log("FirstnameValue", firstnameValue);
+        console.log("FirstnameInnerhtml:", firstname.innerHTML);
+        console.log("FirstnameInnertext:", firstname.innerText);
         let lastnameValue = lastname.value.trim();
         let emailValue = email.value.trim();
         let phoneValue = tele.value.trim();
@@ -280,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // adding functionality to the deleteButton
     // let deleteButton = document.getElementById("delete-button");
-    let deleteButton = document.querySelector(".deleteButton")
+    // let deleteButtonSelector = document.querySelector(".deleteButton")
 
 
     tableBody.addEventListener("click", function (event) {
@@ -534,6 +538,8 @@ document.addEventListener("DOMContentLoaded", function () {
         rerenderTable();
     
     });
+
+    
 
     
 
