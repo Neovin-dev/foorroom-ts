@@ -539,8 +539,51 @@ document.addEventListener("DOMContentLoaded", function () {
     
     });
 
-    
+    const mobileSortBtn = document.getElementById('mobile-sort-btn');
+    const sortOverlay = document.getElementById('sort-overlay');
 
-    
+    if (mobileSortBtn && sortOverlay) {
+        const closeBtn = sortOverlay.querySelector('.close-btn');
+        const backdrop = sortOverlay.querySelector('.overlay-backdrop');
+        // const sortOptions = sortOverlay.querySelectorAll('.overlay-options li');
 
+        const openSortOverlay = () => {
+            sortOverlay.classList.add('is-active');
+            document.body.classList.add('no-scroll');
+        };
+
+        const closeSortOverlay = () => {
+            sortOverlay.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
+        };
+
+        mobileSortBtn.addEventListener('click', openSortOverlay);
+        closeBtn.addEventListener('click', closeSortOverlay);
+        backdrop.addEventListener('click', closeSortOverlay);
+
+    }
+
+    const mobileFilterBtn = document.getElementById('mobile-filter-btn');
+    const filterOverlay = document.getElementById('filters-overlay')
+    
+    if(mobileFilterBtn && filterOverlay){
+        const closeBtn = filterOverlay.querySelector('.close-btn');
+        const backdrop = filterOverlay.querySelector('.overlay-backdrop');
+
+        const openFilterOverlay = () => {
+            filterOverlay.classList.add('is-active');
+            document.body.classList.add('no-scroll');
+        }
+
+        const closeFilterOverlay = () => {
+            filterOverlay.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
+        }
+
+        mobileFilterBtn.addEventListener('click', openFilterOverlay);
+        closeBtn.addEventListener('click', closeFilterOverlay);
+        backdrop.addEventListener('click', closeFilterOverlay);
+
+    }
+    
 });
