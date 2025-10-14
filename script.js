@@ -27,6 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let overlayBackdrop = document.getElementById("overlay-backdrop");
 
+    filterSortFixedContainers = document.getElementById("mobile-controls");
+
+    if (window.innerWidth < 1020){
+        filterContainers.classList.add('deactive-style');
+        filterSortFixedContainers.classList.remove('deactive-style');
+    }
 
     function toggleFilterContainerVisibility() {
     if (filterContainers) {
@@ -35,15 +41,21 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             filterContainers.classList.remove('deactive-style');
         }
+    }
+
+    if (filterSortFixedContainers) {
+        if (window.innerWidth < 1020) {
+            filterSortFixedContainers.classList.remove('deactive-style');
+        } else {
+            filterSortFixedContainers.classList.add('deactive-style');
         }
     }
 
-    toggleFilterContainerVisibility();
+
+    }
 
     window.addEventListener('resize', toggleFilterContainerVisibility);
-        if (window.innerWidth < 1020){
-            filterContainers.classList.add('deactive-style');
-        }
+    
 
     function rerenderTable(){
         //clear the table
@@ -125,6 +137,25 @@ document.addEventListener("DOMContentLoaded", function () {
             return "";
         }
 
+        function validateDate(dob){
+            const today = new Date();
+            const date = new.Date(dob);
+
+            const minimumAge = new Date();
+            minimumAge.setFullYear(today.getFullYear() - 18);
+
+            const maximumAge = new Date();
+            maximumAge.setFullYear(today.getFullYear - 120);
+
+            if(date > minimumAge){
+                return "You must be atleast 18 years old.";
+            }else if (date < maximumAge){
+                return 'Age must be less than 120 years old'
+            }
+
+            return "";
+        }
+
         // subject validation 
         // some function used to check is atleast one of the box is selected
 
@@ -154,9 +185,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // checking the array doesnt work if we compare if no of enteries are there or not we also need to verify the fact that it also matches
         let isSubjectSelected = subjectCheckboxes.some(check => {
-            return check.checked;
             console.log("check.checked:", check.checked);
+            return check.checked;
         });
+
         console.log("isSubjectSelected:", isSubjectSelected);
 
         if (!isSubjectSelected) {
@@ -173,11 +205,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let lastnameValue = lastname.value.trim();
         let emailValue = email.value.trim();
         let phoneValue = tele.value.trim();
+        let dateValue = dob.value.trim();
 
         let nameError = validateName(firstnameValue);
         let lastNameError = validateName(lastnameValue);
         let emailError = validateEmail(emailValue);
         let phoneError = validatePhone(phoneValue);
+        let dateError = validateDate(dateValue);
 
         // error array 
         let errors = [];
@@ -186,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (lastNameError) errors.push(lastNameError);
         if (emailError) errors.push(emailError);
         if (phoneError) errors.push(phoneError);
+        if (dateError) errors.push(dateError);
 
         // only unempty errors returned as a complete concated string
         if (errors.length > 0) {
