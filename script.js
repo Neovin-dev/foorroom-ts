@@ -27,6 +27,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let overlayBackdrop = document.getElementById("overlay-backdrop");
 
+
+    function toggleFilterContainerVisibility() {
+    if (filterContainers) {
+        if (window.innerWidth < 1020) {
+            filterContainers.classList.add('deactive-style');
+        } else {
+            filterContainers.classList.remove('deactive-style');
+        }
+        }
+    }
+
+    toggleFilterContainerVisibility();
+
+    window.addEventListener('resize', toggleFilterContainerVisibility);
+        if (window.innerWidth < 1020){
+            filterContainers.classList.add('deactive-style');
+        }
+
     function rerenderTable(){
         //clear the table
         tableBody.innerHTML = ``;
@@ -264,14 +282,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (isEnabled) {
             button.dataset.enabled = "false";
-            filterContainers.classList.add('deactive-style');
+            // filterContainers.classList.add('deactive-style');
             //backdrop overlay
             if (window.innerWidth < 780){
                 overlayBackdrop.classList.add("inactive");
             }
         } else {
             button.dataset.enabled = "true";
-            filterContainers.classList.remove('deactive-style');
+            // filterContainers.classList.remove('deactive-style');
 
             if (window.innerWidth < 780){
                 overlayBackdrop.classList.remove("inactive");
