@@ -1296,3 +1296,9 @@ label > span, h4 > span{
     color: red;
 }
 
+label > span:nth-child(2) {
+    color: red;
+    font-weight: 500;
+    font-size: 12px;
+}
+

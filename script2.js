@@ -128,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     registrationForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        let isFormValid = true; 
         /*
         test used in this case to find the matches and non matches it is part of RegEx
         */
@@ -136,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function validateName(name) {
             const namePattern = /^[a-zA-Z\s]+$/; 
             if (name.trim() === "") return "Name is required.";
-            if (name.length < 2) return "Name must be at least 3 characters.";
+            if (name.length < 2) return "must be at least 3 characters.";
             if (!namePattern.test(name)) return "Name can only contain letters and spaces.";
             return "";
         }
@@ -144,14 +145,14 @@ document.addEventListener("DOMContentLoaded", function () {
         function validateEmail(email) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (email.trim() === "") return "Email is required.";
-            if (!emailPattern.test(email)) return "Please enter a valid email address.";
+            if (!emailPattern.test(email)) return "Not a valid email address.";
             return "";
         }
 
         function validatePhone(phone) {
             const phonePattern = /^[0-9]{10}$/;
-            if (phone.trim() === "") return "Phone number is required.";
-            if (!phonePattern.test(phone)) return "Phone number must be 10 digits.";
+            if (phone.trim() === "") return "Ph no. is required.";
+            if (!phonePattern.test(phone)) return "Ph no. must be 10 digits.";
             return "";
         }
 
@@ -163,8 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const maximumAge = new Date();
             maximumAge.setFullYear(today.getFullYear() - 120);
 
-            if (date > minimumAge) return "You must be atleast 18 years old.";
-            if (date < maximumAge) return 'Age must be less than 120 years old';
+            if (date > minimumAge) return "must be atleast 18 years old.";
+            if (date < maximumAge) return 'must be less than 120 years old';
             return "";
         }
         
@@ -203,11 +204,16 @@ document.addEventListener("DOMContentLoaded", function () {
         //     return;
         // }
 
-        if(nameError) firstNameError.innerText(nameError);
-        if(lastNameError) lastNameeError.innerText(lastNameError);
+        if(nameError) firstNameError.innerText = nameError;
+        if(lastNameError) lastNameeError.innerText = lastNameError;
         // write a dob one
-        if(emailError) emailAddressError.innerText(emailError);
+        if(emailError) emailAddressError.innerText = emailError;
+        if(phoneError) phoneNumberError.innerHTML = phoneError;
+        if(dateError) dateOfBirthError.innerHTML = dateError;
         
+        if(!isFormValid){
+            return;
+        }
 
         // ==================================================================================================================
         // if (tableBody && tableBody.rows.length < 1) {
