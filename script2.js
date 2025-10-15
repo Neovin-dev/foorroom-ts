@@ -380,29 +380,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 let userId = parseInt(row.dataset.id);
                 registrations = registrations.filter(user => user.id !== userId);
                 row.remove();
-
-                (function(){
-                    let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
-                    allCheckBoxes.forEach(checkbox => checkbox.checked = false);
-                    rerenderTable();
-                    if(registrations.length > 0){
-                        tableData.classList.remove("deactive-style");
-                    }
-                    
-                    emptyStateFilter.classList.add("deactive-style");
-                })();
+                applyFilterButton.click();
+                // simulate a click as the applyFilterButton is a click event listner
                 
-                if (tableBody.rows.length === 0) {
-                    // dataTablePanel.classList.add('deactive-style');
-                    tableData.classList.add("deactive-style");
-                    if(filterBar) filterBar.classList.add('deactive-style');
-                    if(sortControls) sortControls.classList.add('deactive-style');
-                    if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
-                }
-                if (tableBody.rows.length <= 1) {
-                     if(sortControls) sortControls.classList.add('deactive-style');
-                    //  if(filterMenu) filterMenu.classList.add('deactive-style');
-                }
+                // if (tableBody.rows.length === 1) { 
+                //     // dataTablePanel.classList.add('deactive-style');
+                //     tableData.classList.add("deactive-style");
+                //     if(filterBar) filterBar.classList.add('deactive-style');
+                //     if(sortControls) sortControls.classList.add('deactive-style');
+                //     if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
+                // }
+                // if (tableBody.rows.length <= 1) {
+                //      if(sortControls) sortControls.classList.add('deactive-style');
+                //     //  if(filterMenu) filterMenu.classList.add('deactive-style');
+                // }
             }
         });
     }
@@ -454,6 +445,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 const subjectMatch = selectedSubjects.length === 0 || user.subjects.some(subject => selectedSubjects.includes(subject.toLowerCase()));
                 return genderMatch && centerMatch && subjectMatch;
             });
+
+            if (filteredRegistrations.length === 0) {
+                if (registrations.length > 0) {
+                    clearFilterButton.click(); 
+                } else {
+                    rerenderTable();
+                }
+                return; 
+            }
 
             if(tableBody) {
                 tableBody.innerHTML = '';
