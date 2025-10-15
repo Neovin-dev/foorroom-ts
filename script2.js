@@ -210,6 +210,11 @@ document.addEventListener("DOMContentLoaded", function () {
             submitButton.classList.remove("update-button");
         }
 
+        (function(){
+            let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
+            allCheckBoxes.forEach(checkbox => checkbox.checked = false);
+        })();
+
         if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
         if (filterBar) filterBar.classList.remove('deactive-style');
         if (sortControls) sortControls.classList.remove('deactive-style');
@@ -382,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.remove();
                 applyFilterButton.click();
                 // simulate a click as the applyFilterButton is a click event listner
-                
+
                 // if (tableBody.rows.length === 1) { 
                 //     // dataTablePanel.classList.add('deactive-style');
                 //     tableData.classList.add("deactive-style");
