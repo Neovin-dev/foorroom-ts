@@ -154,6 +154,10 @@ h4 {
     font-size: 18px;
 }
 
+.gender-selection-group h4, .subject-selection-group h4 {
+    font-size: 13px;
+}
+
 #registrationForm {
     display: flex;
     flex-direction: column;
@@ -169,8 +173,8 @@ h4 {
     justify-content: center;
     align-content: center;
     background: var(--form-color-2);
-    margin: 40px 10px 10px 10px;
-    padding: 20px 20px 30px 20px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px var(--warning-red);
     max-width: 895px;
@@ -185,7 +189,7 @@ h4 {
     flex-direction: column;
     justify-content: center;
     background: var(--form-color-2);
-    padding: 20px 20px 30px 20px;
+    padding: 30px 30px 30px 30px;
     border-radius: 20px;
     min-width: 30vw;
     flex: 1;
@@ -207,8 +211,8 @@ h4 {
     background: var(--form-color-2);
     padding: 20px 20px 30px 20px;
     border-radius: 20px;
-    box-shadow: 5px 5px 10px var(--warning-red);
-    border: 0.5px solid var(--border-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .filter-panel h3 {
@@ -258,7 +262,7 @@ select {
 }
 
 .input-group {
-    margin: 10px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     flex: 40%;
@@ -290,10 +294,11 @@ select:focus {
     height: 30px;
 }
 
-.input-group input:user-invalid {
+/* is giving inconsistent results when the field is cleared */
+/* .input-group input:user-invalid {
     background: var(--warning-red);
     border: 2px solid var(--warning-red);
-}
+} */
 
 .input-group > label {
     font-size: 13px;
@@ -360,14 +365,26 @@ select:focus {
     flex: 40%;
     align-self:center;
     flex-wrap: wrap;
+    padding: 10px;
 }
 
-.gender-selection-group, .subject-selection-group {
+.gender-selection-group {
     display: flex;
     flex-direction: column;
-    padding-left: 12px;
+    /* padding-left: 12px; */
     width: 100%;
     align-self:center;
+}
+
+.subject-selection-group {
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 12px; */
+    flex-wrap: wrap;
+    align-self:center;
+    padding: 10px;
+    flex: 40%;
+    flex-wrap: wrap;
 }
 
 .gender-selection-group > label, .subject-selection-group > label {
@@ -377,10 +394,6 @@ select:focus {
     font-weight: 600;
 }
 
-.subject-selection-group {
-    padding-left: 12px;
-    width: 100%;
-}
 
 .subject-selection-group > label {
     display: block;
@@ -617,6 +630,10 @@ select:focus {
     padding-left: 2px;
 }
 
+.form-checkbox-option {
+    justify-self: center;
+}
+
 .custom-checkbox {
     position: absolute;
     top: 2px;
@@ -667,12 +684,18 @@ select:focus {
 
 .form-container-grid {
     display: flex;
-    flex: 100%;
+    width: 100%;
 
 }
 
 .form-checkbox-option {
-    flex: 25%;
+    flex: 50%;
+    width: 100%;
+}
+
+.form-checkbox-option label {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
 }
 
@@ -682,30 +705,36 @@ select:focus {
     align-items: center;
     justify-content: space-around;
     width: 100%; /* Added for proper centering */
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .submit-button, .action-button {
+    font-family: Poppins;
     display: inline-block;
     border-radius: 2px;
     height: 35px;
     width: 120px;
-    background: #292829;
+    background: #9b7819;
+    backdrop-filter: blur(20px);
     color: white;
     font-weight: 600;
-    border: 2px solid rgba(255, 255, 255, 0.668);
+    border: 2px solid var(--border-color);
     cursor: pointer;
     border-radius: 25px;
-    box-shadow: 5px 5px 10px var(--warning-red);
+
+    
 }
 
 .submit-button:hover, .action-button:hover {
     background: #9b7819;
     transform: scale(1.05);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 
 .submit-button:active, .action-button:active {
-    background: var(--bg-color);
+    background: transparent;
     box-shadow: 5px 5px 10px var(--caution-yellow);
 }
 
@@ -771,13 +800,14 @@ select:focus {
 
 table, th {
     padding: 10px 12px;
-    border: 2px solid #F4C644;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
     border-collapse: collapse;
 }
 
 td {
     padding: 0px 5px;
-    border: 2px solid #F4C644;
+    border-bottom: 2px solid var(--border-color);
     border-collapse: collapse;
 }
 
@@ -866,11 +896,6 @@ tr:last-child td:last-child {
     background: var(--button-click);
 }
 
-
-.deactive-style {
-    display: none;
-}
-
 .button-register-menu {
     margin-top: 4px;
     margin-bottom: 4px;
@@ -919,12 +944,11 @@ td {
     height: 40px;
     width: 40px;
     text-decoration: none;
-    border: 2px solid #ffffff;
-    background-color: wheat;
+    background: #9b7819;;
     cursor: pointer;
     border-radius: 2px;
-    border-radius: 25px;
-    box-shadow: 5px 5px 10px var(--warning-red);
+    border-radius: 10px;
+    border: 0.5px solid var(--border-color);
 }
 
 
@@ -940,31 +964,40 @@ td {
     text-align: center;
     left: -1000vw;
     top: 50px;
-    border: 2px solid #ffffff;
-    background: wheat;
     padding: 6px 0;
     margin: 0;
     list-style: none;
-    height: 150px;
+    height: 190px;
     width: 140px;
     border-radius: 2px;
     box-shadow: 0 3px 8px rgba(0,0,0,.15);
+    background: rgba(0, 0, 0, 0.668);
+    backdrop-filter: invert(80%);
+    
+    
+    box-shadow: 5px 5px 10px var(--warning-red);
+    border: 0.5px solid var(--border-color);
+}
+
+#sortOptionsMenu {
+    border-radius: 20px;
 }
 
 .dropdown-menu > input[type="checkbox"]:checked ~ ul {
     left: -100px;
-    top: 60px;
+    /* top: 60px; */
     border-radius: 2px;
 }
 
 .dropdown-menu > ul li {
-    padding: 6px 15px;
+    padding: 10px 15px;
     cursor: pointer;
-    color: #333;
+    color: #ffffff;
 }
 
 .dropdown-menu > ul li:hover {
-    background: #ececec;
+    background: var(--border-color);
+    border-radius: 20px;
 }
 
 .filter-group-content {
@@ -1009,10 +1042,6 @@ td {
     background-color: #F4C644;
 }
 
-/* .inactive {
-    display: none;
-} */
-
 .full-width {
     min-width: 250px;
 }
@@ -1053,6 +1082,14 @@ html {
     display: none;
 }
 
+#empty-state-filters.deactive-style {
+    display: none;
+}
+
+#empty-state-default.deactive-style {
+    display: none;
+}
+
 .options-container-grid .checkbox-option {
     display: flex;
     position: relative;
@@ -1065,10 +1102,24 @@ html {
     user-select: none;
 }
 
-.form-container-grid .form-checkbox-option {
+.form-container-grid{
     display: flex;
     position: relative;
-    flex: 50%;
+    flex: 100%;
+    padding-bottom: 5px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-checkbox-option {
+    display: flex;
+    position: relative;
+    flex: 40%;
     padding-bottom: 5px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -1195,7 +1246,7 @@ html {
     font-weight: 900;
     font-style: italic;
     font-size: 32px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
 }
 
 .data-table-header .table-title h3 span {
@@ -1216,4 +1267,23 @@ html {
 
 #mobileFilterButtton {
     border-right: 1px solid var(--border-color);
+}
+
+#empty-state-filters, #empty-state-default {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#empty-state-default img {
+    height: 200px;
+}
+
+#empty-state-filters h2, #empty-state-default h2{
+    padding: 20px;
+    margin-top: 10px;
 }

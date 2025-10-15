@@ -1,9 +1,11 @@
 let registrations = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Renamed variables to match new element IDs and conventions
+
     let dataTablePanel = document.getElementById("dataTable");
-    let filterBar = document.getElementById("filter-bar"); // Note: This ID does not exist in the new HTML, will be null.
+    let filterBar = document.getElementById("filter-bar");
+    let tableContainer = document.getElementById("table-container");
+    let tableData = document.querySelector(".table-container-div");
     let sortControls = document.getElementById("sortControls");
     let filterMenu = document.getElementById("filterMenu");
 
@@ -14,19 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let emailInput = document.getElementById("emailAddress");
     let phoneInput = document.getElementById("phoneNumber");
     let examCenterInput = document.getElementById("examCenter");
-    let pageRefreshButton = document.getElementById('pageRefreshButton');
+    // let pageRefreshButton = document.getElementById('pageRefreshButton');
 
-    // Note: The new HTML does not have an element with id="tableBody". 
-    // This will be null and will cause errors unless you add a <tbody id="tableBody"> element to your page.
     let tableBody = document.getElementById("tableBody");
 
     // sort menu
     let sortOptionsMenu = document.getElementById("sortOptionsMenu");
 
-    // Note: This ID does not exist in the new HTML, will be null.
     let overlayBackdrop = document.getElementById("overlay-backdrop");
 
     let mobileControls = document.getElementById("mobileControls");
+
+    let emptyStateDefault = document.getElementById("empty-state-default");
 
     if (window.innerWidth < 1020) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
@@ -51,7 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    window.addEventListener('resize', toggleFilterContainerVisibility);
+    window.addEventListener('reload', toggleFilterContainerVisibility);
+    // reload and resize.
 
 
     function rerenderTable() {
@@ -84,6 +86,26 @@ document.addEventListener("DOMContentLoaded", function () {
             tableBody.appendChild(row);
         })
 
+        if (registrations.length === 0) {
+            if (dataTablePanel) dataTablePanel.classList.add('deactive-style');
+            if (filterBar) filterBar.classList.add('deactive-style');
+            if (sortControls) sortControls.classList.add('deactive-style');
+            if (tableContainer) tableContainer.classList.add('deactive-style');
+        } else {
+            if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
+            if (filterBar) filterBar.classList.remove('deactive-style');
+            if (sortControls) sortControls.classList.remove('deactive-style');
+            if (tableContainer) tableContainer.classList.remove('deactive-style');
+        }
+
+        if (emptyStateDefault) {
+            if (registrations.length > 0) {
+                emptyStateDefault.classList.add('deactive-style');
+            } else {
+                emptyStateDefault.classList.remove('deactive-style');
+            }
+        }
+
     }
 
     // UPLOAD THE DATA TO form and update registrations.
@@ -96,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // validation ==================================================================================================================
         function validateName(name) {
-            const namePattern = /^[a-zA-Z\s]/;
+            const namePattern = /^[a-zA-Z\s]+$/; 
             if (name.trim() === "") return "Name is required.";
             if (name.length < 2) return "Name must be at least 3 characters.";
             if (!namePattern.test(name)) return "Name can only contain letters and spaces.";
@@ -166,13 +188,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // ==================================================================================================================
-        if (tableBody && tableBody.rows.length < 1) {
-            dataTablePanel.classList.remove('deactive-style');
-        }
+        // if (tableBody && tableBody.rows.length < 1) {
+        //     tableContainer.classList.add('deactive-style');
+        // }
 
-        if (tableBody && tableBody.rows.length > 0) {
-            if (filterBar) filterBar.classList.remove('deactive-style');
-            if (sortControls) sortControls.classList.remove('deactive-style');
+        // if (tableBody && tableBody.rows.length > 0) {
+        //     if (filterBar) filterBar.classList.remove('deactive-style');
+        //     if (sortControls) sortControls.classList.remove('deactive-style');
+        //     tableContainer.classList.remove('deactive-style');
+        // }
+
+        if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
+        if (filterBar) filterBar.classList.remove('deactive-style');
+        if (sortControls) sortControls.classList.remove('deactive-style');
+        if (tableContainer) tableContainer.classList.remove('deactive-style');
+
+        if(emptyStateDefault){
+            if(registrations.length > 0){
+                emptyStateDefault.classList.remove('deactive-style');
+            }else {
+                emptyStateDefault.classList.add('deactive-style');
+            }
         }
 
         let gender = document.querySelector('input[name="gender"]:checked');
@@ -203,27 +239,30 @@ document.addEventListener("DOMContentLoaded", function () {
         user.subjects = Array.from(selectedSubjects);
         registrations.push(user);
         
-        if (tableBody) {
-            let row = document.createElement("tr");
-            row.setAttribute('data-id', user.id);
-            row.innerHTML = `
-                <td>${user.firstname}</td>
-                <td>${user.lastname}</td>
-                <td>${user.dob}</td>
-                <td>${user.email}</td>
-                <td>${user.tele}</td>
-                <td>${user.exam}</td>
-                <td>${user.gender}</td>
-                <td>${user.subjects.join(', ')}</td>
-                <td><button class="action-button button-register-menu edit-button" type="button">
-                    <img src="img/edit_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                </button></td>
-                <td><button class="action-button button-register-menu delete-button" type="button">
-                    <img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-                </button></td>
-            `;
-            tableBody.appendChild(row);
-        }
+        // if (tableBody) {
+        //     let row = document.createElement("tr");
+        //     row.setAttribute('data-id', user.id);
+        //     row.innerHTML = `
+        //         <td>${user.firstname}</td>
+        //         <td>${user.lastname}</td>
+        //         <td>${user.dob}</td>
+        //         <td>${user.email}</td>
+        //         <td>${user.tele}</td>
+        //         <td>${user.exam}</td>
+        //         <td>${user.gender}</td>
+        //         <td>${user.subjects.join(', ')}</td>
+        //         <td><button class="action-button button-register-menu edit-button" type="button">
+        //             <img src="img/edit_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        //         </button></td>
+        //         <td><button class="action-button button-register-menu delete-button" type="button">
+        //             <img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+        //         </button></td>
+        //     `;
+        //     tableBody.appendChild(row);
+
+
+        // }
+        rerenderTable();
         registrationForm.reset();
     });
 
@@ -283,10 +322,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.remove();
 
                 if (tableBody.rows.length === 0) {
-                    dataTablePanel.classList.add('deactive-style');
+                    // dataTablePanel.classList.add('deactive-style');
+                    tableData.classList.add("deactive-style");
                     if(filterBar) filterBar.classList.add('deactive-style');
                     if(sortControls) sortControls.classList.add('deactive-style');
-                    if(filterMenu) filterMenu.classList.add('deactive-style');
+                    // if(filterMenu) filterMenu.classList.add('deactive-style');
+                    //toggle the empty state illustration here
+                    if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
+                }
+                if (tableBody.rows.length <= 1) {
+                     if(sortControls) sortControls.classList.add('deactive-style');
+                    //  if(filterMenu) filterMenu.classList.add('deactive-style');
                 }
             }
 
@@ -297,31 +343,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.remove();
                 
                 if (tableBody.rows.length === 0) {
-                    dataTablePanel.classList.add('deactive-style');
+                    // dataTablePanel.classList.add('deactive-style');
+                    tableData.classList.add("deactive-style");
                     if(filterBar) filterBar.classList.add('deactive-style');
                     if(sortControls) sortControls.classList.add('deactive-style');
-                    if(filterMenu) filterMenu.classList.add('deactive-style');
+                    // if(filterMenu) filterMenu.classList.add('deactive-style');
+                    //toggle the empty state illustration here
+                    if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
                 }
-                if (tableBody.rows.length <= 1) { // Logic adjusted slightly to be more robust
+                if (tableBody.rows.length <= 1) {
                      if(sortControls) sortControls.classList.add('deactive-style');
-                     if(filterMenu) filterMenu.classList.add('deactive-style');
+                    //  if(filterMenu) filterMenu.classList.add('deactive-style');
                 }
             }
         });
     }
 
-
-    pageRefreshButton.addEventListener("click", function (event) {
-        registrations = [];
-        if (tableBody) tableBody.innerHTML = "";
-        
-        if (!tableBody || tableBody.rows.length === 0) {
-            dataTablePanel.classList.add('deactive-style');
-            if(filterBar) filterBar.classList.add('deactive-style');
-            if(sortControls) sortControls.classList.add('deactive-style');
-            if(filterMenu) filterMenu.classList.add('deactive-style');
-        }
-    });
 
     if (sortOptionsMenu) {
         sortOptionsMenu.addEventListener("click", function (event) {
@@ -353,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (applyFilterButton) {
         applyFilterButton.addEventListener("click", function () {
-            if (filterMenu) filterMenu.classList.toggle('deactive-style');
+            // if (filterMenu) filterMenu.classList.toggle('deactive-style');
 
             let selectedGenderCheckBoxes = document.querySelectorAll('#filterMenu input[name="gender-filter"]:checked');
             let selectedSubjectCheckboxes = document.querySelectorAll('#filterMenu input[name="subject"]:checked');
@@ -388,6 +425,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td><button class="action-button button-register-menu delete-button" type="button"><img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete"></button></td>
                     `;
                     tableBody.appendChild(row);
+
+                    // if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
+                    // if (filterBar) filterBar.classList.remove('deactive-style');
+                    // if (sortControls) sortControls.classList.remove('deactive-style');
+                    // if (tableContainer) tableContainer.classList.remove('deactive-style');
                 });
             }
             if (overlayBackdrop && window.innerWidth < 780) {
