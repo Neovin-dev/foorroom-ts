@@ -1213,3 +1213,7 @@ html {
 #clearFilterButton, #mobileClearFilterButton {
     min-width: 60px;
 }
+
+#mobileFilterButtton {
+    border-right: 1px solid var(--border-color);
+}
