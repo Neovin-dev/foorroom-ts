@@ -140,7 +140,7 @@ body {
     /* margin-bottom: 10px; */
     font-weight: 900;
     font-style: italic;
-    font-size: 28px;
+    font-size: 32px;
 }
 
 .form-content-wrapper h3 span {
@@ -726,6 +726,10 @@ select:focus {
     
 }
 
+.update-button{
+    background: #47b474a1;
+}
+
 .submit-button:hover, .action-button:hover {
     background: #9b7819;
     transform: scale(1.05);
@@ -919,10 +923,10 @@ td {
 
 .data-section {
     display: flex;
-    margin: 4px;
+    margin: 14px;
     align-items: flex-start;
     justify-content: center;
-    width: 98%;
+    width: calc(100% - 24px);
     margin-top: 20px;
     max-width: 1400px;
     margin-bottom: 50px;
@@ -968,7 +972,7 @@ td {
     margin: 0;
     list-style: none;
     height: 190px;
-    width: 140px;
+    width: 150px;
     border-radius: 2px;
     box-shadow: 0 3px 8px rgba(0,0,0,.15);
     background: rgba(0, 0, 0, 0.668);

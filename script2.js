@@ -1,5 +1,5 @@
 let registrations = [];
-
+ let editMode = false;
 document.addEventListener("DOMContentLoaded", function () {
 
     let dataTablePanel = document.getElementById("dataTable");
@@ -92,12 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
         })
 
         if (registrations.length === 0) {
-            if (dataTablePanel) dataTablePanel.classList.add('deactive-style');
+            // if (dataTablePanel) dataTablePanel.classList.add('deactive-style');
+            if(tableData) tableData.classList.add("deactive-style");
             if (filterBar) filterBar.classList.add('deactive-style');
             if (sortControls) sortControls.classList.add('deactive-style');
             if (tableContainer) tableContainer.classList.add('deactive-style');
         } else {
-            if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
+            // if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
+            if(tableData) tableData.classList.remove("deactive-style");
             if (filterBar) filterBar.classList.remove('deactive-style');
             if (sortControls) sortControls.classList.remove('deactive-style');
             if (tableContainer) tableContainer.classList.remove('deactive-style');
@@ -203,6 +205,11 @@ document.addEventListener("DOMContentLoaded", function () {
         //     tableContainer.classList.remove('deactive-style');
         // }
 
+        if(editMode){
+            submitButton.textContent = `Submit`;
+            submitButton.classList.remove("update-button");
+        }
+
         if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
         if (filterBar) filterBar.classList.remove('deactive-style');
         if (sortControls) sortControls.classList.remove('deactive-style');
@@ -290,12 +297,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    const submitButton = document.querySelector('.submit-button');
+   
+
     if (tableBody) {
         tableBody.addEventListener("click", function (event) {
             let editButton = event.target.closest(".edit-button");
             let deleteButton = event.target.closest(".delete-button");
 
             if (editButton) {
+
+                // update mode
+                editMode = true;
+                submitButton.textContent = `Update`;
+                submitButton.classList.add("update-button");
+                
                 let row = editButton.closest("tr");
                 let userId = parseInt(row.dataset.id);
                 let userEdit = registrations.find(user => user.id === userId);
@@ -326,6 +342,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 registrations = registrations.filter(user => user.id !== userId);
                 row.remove();
 
+                // rerenderTable();
+                (function(){
+                    let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
+                    allCheckBoxes.forEach(checkbox => checkbox.checked = false);
+                    rerenderTable();
+                    if(registrations.length > 0){
+                        tableData.classList.remove("deactive-style");
+                    }
+                    
+                    emptyStateFilter.classList.add("deactive-style");
+                })();
+
                 if (tableBody.rows.length === 0) {
                     // dataTablePanel.classList.add('deactive-style');
                     tableData.classList.add("deactive-style");
@@ -334,10 +362,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     // if(filterMenu) filterMenu.classList.add('deactive-style');
                     //toggle the empty state illustration here
                     if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
+                    
                 }
                 if (tableBody.rows.length <= 1) {
                      if(sortControls) sortControls.classList.add('deactive-style');
+                     tableData.classList.remove("deactive-style");
                     //  if(filterMenu) filterMenu.classList.add('deactive-style');
+                }
+
+                if(registrations.length === 0){
+                    tableData.classList.add("deactive-style")
                 }
             }
 
@@ -346,14 +380,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 let userId = parseInt(row.dataset.id);
                 registrations = registrations.filter(user => user.id !== userId);
                 row.remove();
+
+                (function(){
+                    let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
+                    allCheckBoxes.forEach(checkbox => checkbox.checked = false);
+                    rerenderTable();
+                    if(registrations.length > 0){
+                        tableData.classList.remove("deactive-style");
+                    }
+                    
+                    emptyStateFilter.classList.add("deactive-style");
+                })();
                 
                 if (tableBody.rows.length === 0) {
                     // dataTablePanel.classList.add('deactive-style');
                     tableData.classList.add("deactive-style");
                     if(filterBar) filterBar.classList.add('deactive-style');
                     if(sortControls) sortControls.classList.add('deactive-style');
-                    // if(filterMenu) filterMenu.classList.add('deactive-style');
-                    //toggle the empty state illustration here
                     if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
                 }
                 if (tableBody.rows.length <= 1) {
@@ -401,14 +444,14 @@ document.addEventListener("DOMContentLoaded", function () {
             let selectedSubjectCheckboxes = document.querySelectorAll('#filterMenu input[name="subject"]:checked');
             let selectedCenterCheckBoxes = document.querySelectorAll('#filterMenu input[name="center"]:checked');
 
-            let selectedGenders = Array.from(selectedGenderCheckBoxes).map(cb => cb.value);
-            let selectedSubjects = Array.from(selectedSubjectCheckboxes).map(cb => cb.value);
-            let selectedCenters = Array.from(selectedCenterCheckBoxes).map(cb => cb.value);
+            let selectedGenders = Array.from(selectedGenderCheckBoxes).map(cb => cb.value.toLowerCase());
+            let selectedSubjects = Array.from(selectedSubjectCheckboxes).map(cb => cb.value.toLowerCase());
+            let selectedCenters = Array.from(selectedCenterCheckBoxes).map(cb => cb.value.toLowerCase());
 
             let filteredRegistrations = registrations.filter(user => {
-                const genderMatch = selectedGenders.length === 0 || selectedGenders.includes(user.gender);
-                const centerMatch = selectedCenters.length === 0 || selectedCenters.includes(user.exam);
-                const subjectMatch = selectedSubjects.length === 0 || user.subjects.some(s => selectedSubjects.includes(s));
+                const genderMatch = selectedGenders.length === 0 || selectedGenders.includes(user.gender.toLowerCase());
+                const centerMatch = selectedCenters.length === 0 || selectedCenters.includes(user.exam.trim().toLowerCase());
+                const subjectMatch = selectedSubjects.length === 0 || user.subjects.some(subject => selectedSubjects.includes(subject.toLowerCase()));
                 return genderMatch && centerMatch && subjectMatch;
             });
 
@@ -445,6 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 tableData.classList.add("deactive-style");
                 emptyStateFilter.classList.remove("deactive-style");
             }else {
+                tableData.classList.remove("deactive-style");
                 emptyStateFilter.classList.add("deactive-style");
             }
         });
@@ -455,7 +499,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
             allCheckBoxes.forEach(checkbox => checkbox.checked = false);
             rerenderTable();
-            tableData.classList.remove("deactive-style");
+            if(registrations.length > 0){
+                tableData.classList.remove("deactive-style");
+            }
+            
             emptyStateFilter.classList.add("deactive-style");
             
         });

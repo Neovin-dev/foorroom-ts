@@ -513,6 +513,32 @@ document.addEventListener("DOMContentLoaded", function () {
         let selectedGenders = selectedGenArr.map(checkbox => checkbox.value);
         let selectedSubjects = selectedSubArr.map(checkbox => checkbox.value);
         let selectedCenters = selectedCenArr.map(checkbox => checkbox.value);
+
+         let filteredRegistrationList = [...this.registrationsList]
+
+      if (this.activeFilters.gender.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) =>
+          this.activeFilters.gender.includes(user.gender),
+        )
+      }
+      if (this.activeFilters.exam.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) =>
+          this.activeFilters.exam.includes(user.exam),
+        )
+      }
+      if (this.activeFilters.subjects.length > 0) {
+        filteredRegistrationList = filteredRegistrationList.filter((user) => {
+          let foundMatch = false
+
+          for (const subject of user.subjects) {
+            if (this.activeFilters.subjects.includes(subject)) {
+              foundMatch = true
+              break
+            }
+          }
+          return foundMatch
+        })
+      }
         
 
         // temp arr using filters
