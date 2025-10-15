@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let mobileControls = document.getElementById("mobileControls");
 
     let emptyStateDefault = document.getElementById("empty-state-default");
+    let emptyStateFilter = document.getElementById("empty-state-filters");
 
     if (window.innerWidth < 1020) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
@@ -52,8 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    toggleFilterContainerVisibility(); 
+    // check on intial load
+
     window.addEventListener('reload', toggleFilterContainerVisibility);
-    // reload and resize.
+    window.addEventListener('resize', toggleFilterContainerVisibility);
+    // reload and resize. load when refreshed
 
 
     function rerenderTable() {
@@ -433,7 +438,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
             if (overlayBackdrop && window.innerWidth < 780) {
-                overlayBackdrop.classList.toggle("inactive");
+                overlayBackdrop.classList.toggle("deactive-style");
+            }
+
+            if(filteredRegistrations.length === 0){
+                tableData.classList.add("deactive-style");
+                emptyStateFilter.classList.remove("deactive-style");
+            }else {
+                emptyStateFilter.classList.add("deactive-style");
             }
         });
     }
@@ -443,6 +455,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let allCheckBoxes = document.querySelectorAll('#filterMenu input[type="checkbox"]');
             allCheckBoxes.forEach(checkbox => checkbox.checked = false);
             rerenderTable();
+            tableData.classList.remove("deactive-style");
+            emptyStateFilter.classList.add("deactive-style");
+            
         });
     }
     

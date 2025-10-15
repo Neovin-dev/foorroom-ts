@@ -209,7 +209,7 @@ h4 {
     justify-content: center;
     align-content: center;
     background: var(--form-color-2);
-    padding: 20px 20px 30px 20px;
+    padding: 30px;
     border-radius: 20px;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -218,7 +218,7 @@ h4 {
 .filter-panel h3 {
     font-weight: 900;
     font-style: italic;
-    font-size: 25px;
+    font-size: 32px;
 }
 
 .filter-panel h3 span {
