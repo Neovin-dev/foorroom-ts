@@ -1291,3 +1291,8 @@ html {
     padding: 20px;
     margin-top: 10px;
 }
+
+label > span, h4 > span{
+    color: red;
+}
+

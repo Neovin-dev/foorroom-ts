@@ -115,6 +115,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    const firstNameError = document.getElementById("firstNameError");
+    const lastNameeError = document.getElementById("lastNameError");
+    const dateOfBirthError = document.getElementById("dateOfBirthError");
+    const emailAddressError = document.getElementById("emailAddressError");
+    const genderError = document.getElementById("genderError");
+    const phoneNumberError = document.getElementById("phoneNumberError");
+    const examCenterError = document.getElementById("examCenterError");
+    const subjectError= document.getElementById("subjectError");
+
     // UPLOAD THE DATA TO form and update registrations.
     registrationForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -182,17 +191,23 @@ document.addEventListener("DOMContentLoaded", function () {
         let phoneError = validatePhone(phoneValue);
         let dateError = validateDate(dateValue);
 
-        let errors = [];
-        if (nameError) errors.push(nameError);
-        if (lastNameError) errors.push(lastNameError);
-        if (emailError) errors.push(emailError);
-        if (phoneError) errors.push(phoneError);
-        if (dateError) errors.push(dateError);
+        // let errors = [];
+        // if (nameError) errors.push(nameError);
+        // if (lastNameError) errors.push(lastNameError);
+        // if (emailError) errors.push(emailError);
+        // if (phoneError) errors.push(phoneError);
+        // if (dateError) errors.push(dateError);
 
-        if (errors.length > 0) {
-            alert(errors.join('\n'));
-            return;
-        }
+        // if (errors.length > 0) {
+        //     alert(errors.join('\n'));
+        //     return;
+        // }
+
+        if(nameError) firstNameError.innerText(nameError);
+        if(lastNameError) lastNameeError.innerText(lastNameError);
+        // write a dob one
+        if(emailError) emailAddressError.innerText(emailError);
+        
 
         // ==================================================================================================================
         // if (tableBody && tableBody.rows.length < 1) {
