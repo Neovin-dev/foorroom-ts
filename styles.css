@@ -1442,6 +1442,19 @@ input::placeholder {
     font-size: 16px;
 }
 
+input::-webkit-input-placeholder {
+    font-size: 16px;
+}
+
+input::-moz-placeholder {
+    font-size: 16px;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder {
+    font-size: 16px;
+}
+
 
 @media (max-width: 1024px){
     .page-wrapper {
