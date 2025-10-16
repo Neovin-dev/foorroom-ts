@@ -465,6 +465,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 registrations = registrations.filter(user => user.id !== userId);
                 row.remove();
                 if(dataSection && !(dataSection.classList.contains('deative-style')) && (registrations.length === 0)) dataSection.classList.add('deactive-style');
+                if(filteredRegistrations.length === 0) dataSection.classList.add('deactive-style');
                 deleteMode = true;
                 applyFilterButton.click();
                 
