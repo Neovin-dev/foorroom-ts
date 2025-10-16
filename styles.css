@@ -347,6 +347,19 @@ select:focus {
     height: 100%;
 }
 
+.input-group input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 5px;
+    height: 35px;
+
+}
+
 .input-group input:focus {
     outline: none;
     text-decoration: none;
@@ -1435,7 +1448,18 @@ img {
 }
 
 
+.input-group input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    padding: 5px;
+    height: 35px;
 
+}
 
 
 
