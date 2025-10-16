@@ -548,8 +548,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     let row = document.createElement("tr");
                     row.setAttribute('data-id', user.id);
                     row.innerHTML = `
-                        <td>${user.firstname}</td>
-                        <td>${user.lastname}</td>
+                        <td>${user.firstname} ${user.lastname}</td>
                         <td>${user.dob}</td>
                         <td>${user.email}</td>
                         <td>${user.tele}</td>
@@ -679,8 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let row = document.createElement("tr");
         row.setAttribute('data-id', user.id);
         row.innerHTML = `
-            <td>${user.firstname}</td>
-            <td>${user.lastname}</td>
+            <td>${user.firstname} ${user.lastname}</td>
             <td>${user.dob}</td>
             <td>${user.email}</td>
             <td>${user.tele}</td>
