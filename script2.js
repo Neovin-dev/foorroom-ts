@@ -30,14 +30,17 @@ document.addEventListener("DOMContentLoaded", function () {
     let emptyStateDefault = document.getElementById("empty-state-default");
     let emptyStateFilter = document.getElementById("empty-state-filters");
 
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 1025) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
         if (mobileControls) mobileControls.classList.remove('deactive-style');
+        if(sortControls) sortControls.classList.add('deactive-style');
+    }else {
+        if(sortControls && sortControls.classList.includes('deactive-style')) sortControls.classList.remove('deactive-style');
     }
 
     function toggleFilterContainerVisibility() {
         if (filterMenu) {
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 1025) {
                 filterMenu.classList.add('deactive-style');
             } else {
                 filterMenu.classList.remove('deactive-style');
@@ -45,10 +48,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (mobileControls) {
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 1025) {
                 mobileControls.classList.remove('deactive-style');
             } else {
                 mobileControls.classList.add('deactive-style');
+            }
+        }
+
+        if (sortControls) {
+            if (window.innerWidth < 1025) {
+                sortControls.classList.add('deactive-style');
+            } else {
+                sortControls.classList.remove('deactive-style');
             }
         }
     }
@@ -95,13 +106,13 @@ document.addEventListener("DOMContentLoaded", function () {
             // if (dataTablePanel) dataTablePanel.classList.add('deactive-style');
             if(tableData) tableData.classList.add("deactive-style");
             if (filterBar) filterBar.classList.add('deactive-style');
-            if (sortControls) sortControls.classList.add('deactive-style');
+            // if (sortControls) sortControls.classList.add('deactive-style');
             if (tableContainer) tableContainer.classList.add('deactive-style');
         } else {
             // if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
             if(tableData) tableData.classList.remove("deactive-style");
             if (filterBar) filterBar.classList.remove('deactive-style');
-            if (sortControls) sortControls.classList.remove('deactive-style');
+            // if (sortControls) sortControls.classList.remove('deactive-style');
             if (tableContainer) tableContainer.classList.remove('deactive-style');
         }
 
@@ -204,12 +215,37 @@ document.addEventListener("DOMContentLoaded", function () {
         //     return;
         // }
 
-        if(nameError) firstNameError.innerText = nameError;
-        if(lastNameError) lastNameeError.innerText = lastNameError;
+        if(nameError){
+            firstNameError.innerText = nameError;
+            isFormValid = false;
+        }else {
+            firstNameError.innerText = '';
+        }
+        if(lastNameError) {
+            lastNameeError.innerText = lastNameError;
+            isFormValid = false;
+        }else {
+            lastNameeError.innerText = '';
+        }
         // write a dob one
-        if(emailError) emailAddressError.innerText = emailError;
-        if(phoneError) phoneNumberError.innerHTML = phoneError;
-        if(dateError) dateOfBirthError.innerHTML = dateError;
+        if(emailError){
+           emailAddressError.innerText = emailError; 
+           isFormValid = false;
+        }else {
+            emailAddressError.innerText = '';
+        }
+        if(phoneError){
+            phoneNumberError.innerHTML = phoneError;
+            isFormValid = false;
+        }else {
+            phoneNumberError.innerHTML = '';
+        }
+        if(dateError){
+           dateOfBirthError.innerHTML = dateError; 
+           isFormValid = false;
+        } else {
+            dateOfBirthError.innerHTML = ''; 
+        }
         
         if(!isFormValid){
             return;
@@ -238,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
         if (filterBar) filterBar.classList.remove('deactive-style');
-        if (sortControls) sortControls.classList.remove('deactive-style');
+        // if (sortControls) sortControls.classList.remove('deactive-style');
         if (tableContainer) tableContainer.classList.remove('deactive-style');
 
         if(emptyStateDefault){
@@ -300,6 +336,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // }
+        if(isFormValid){
+           window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            }); 
+        }
+        
         rerenderTable();
         registrationForm.reset();
     });
@@ -311,12 +354,12 @@ document.addEventListener("DOMContentLoaded", function () {
             let isEnabled = button.dataset.enabled === "true";
             if (isEnabled) {
                 button.dataset.enabled = "false";
-                if (overlayBackdrop && window.innerWidth < 1024) {
+                if (overlayBackdrop && window.innerWidth < 1025) {
                     overlayBackdrop.classList.add("inactive");
                 }
             } else {
                 button.dataset.enabled = "true";
-                if (overlayBackdrop && window.innerWidth < 1024) {
+                if (overlayBackdrop && window.innerWidth < 1025) {
                     overlayBackdrop.classList.remove("inactive");
                 }
             }
@@ -384,14 +427,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     // dataTablePanel.classList.add('deactive-style');
                     tableData.classList.add("deactive-style");
                     if(filterBar) filterBar.classList.add('deactive-style');
-                    if(sortControls) sortControls.classList.add('deactive-style');
+                    // if(sortControls) sortControls.classList.add('deactive-style');
                     // if(filterMenu) filterMenu.classList.add('deactive-style');
                     //toggle the empty state illustration here
                     if(emptyStateDefault) emptyStateDefault.classList.remove('deactive-style');
                     
                 }
                 if (tableBody.rows.length <= 1) {
-                     if(sortControls) sortControls.classList.add('deactive-style');
+                    //  if(sortControls) sortControls.classList.add('deactive-style');
                      tableData.classList.remove("deactive-style");
                     //  if(filterMenu) filterMenu.classList.add('deactive-style');
                 }
@@ -399,6 +442,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(registrations.length === 0){
                     tableData.classList.add("deactive-style")
                 }
+
+                window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+                });
             }
 
             if (deleteButton) {
@@ -442,7 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (tableBody && tableBody.rows.length < 1) {
                 if(filterBar) filterBar.classList.add('deactive-style');
-                if(sortControls) sortControls.classList.add('deactive-style');
+                // if(sortControls) sortControls.classList.add('deactive-style');
             }
 
             let sortDropdownToggle = document.getElementById("sortDropdownToggle");
@@ -506,7 +554,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // if (tableContainer) tableContainer.classList.remove('deactive-style');
                 });
             }
-            if (overlayBackdrop && window.innerWidth < 1024) {
+            if (overlayBackdrop && window.innerWidth < 1025) {
                 overlayBackdrop.classList.toggle("deactive-style");
             }
 

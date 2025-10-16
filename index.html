@@ -45,25 +45,25 @@
 
                     <form id="registrationForm">
 
-                            <div class="input-group">
+                            <div class="input-group block">
                                 <label for="firstName">First Name<span> *</span><span class="error-message" id="firstNameError"></span></label>
                                 <input type="text" id="firstName" name="fname" maxlength="20" placeholder="Enter your first name" required>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group block">
                                 <label for="lastName">Last Name<span> *</span><span class="error-message" id="lastNameError"></span></label>
                                 <input type="text" id="lastName" name="lname" maxlength="20" placeholder="Enter your last name" required>
                             </div>
 
-                            <div class="input-group">
+                            <div class="input-group block">
                                 <label for="dateOfBirth">Date of Birth<span> *</span><span class="error-message" id="dateOfBirthError"></span></label>
-                                <input type="date" id="dateOfBirth" name="dob" required>
+                                <input type="date" id="dateOfBirth" name="dob" onclick="showPicker()" required>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group block">
                                 <label for="emailAddress">Email Address<span> *</span><span class="error-message" id="emailAddressError"></span></label>
                                 <input type="email" id="emailAddress" name="email" placeholder="Enter your Email Address" required>
                             </div>
 
-                            <div class="gender-selection-group">
+                            <div class="gender-selection-group  block">
                                 <h4>Gender<span> *</span><span class="error-message" id="genderError"></span></h4>
                                 <div class="options-container">
                                     <label class="radio-option">Male
@@ -80,9 +80,9 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group  block">
                                 <label for="phoneNumber">Phone number<span> *</span><span class="error-message" id="phoneNumberError"></span></label>
-                                <input type="tel" id="phoneNumber" name="telenum" placeholder="Enter your Phone Number" required>
+                                <input type="text" inputmode="numeric" pattern="\d*" min="0" maxlength="10" id="phoneNumber" name="telenum" placeholder="Enter your Phone Number" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
                             </div>
 
                             <div class="subject-selection-group">
@@ -234,7 +234,7 @@
                             <h3 >Registration <span >Data</span></h3>
                         </div>
                         <div id="tableToolbar">
-                            <div id="sortControls" class="deactive-style">
+                            <div id="sortControls">
                                 <div class="dropdown-menu" id="sortDropdown">
                                     <input type="checkbox" id="sortDropdownToggle" value="">
                                     <label for="sortDropdownToggle" data-toggle="dropdown"> <img src="img/sort_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""> </label>
@@ -327,94 +327,97 @@
                 <h3>Filters</h3>
                 <button class="close-button">X</button>
             </div>
-            <div class="mobile-filter-group">
-                <div class="filter-group-content">
-                    <h4>Gender</h4>
-                    <div class="options-container-grid">
-                        <div class="checkbox-option">
-                            <label for="mobileFilterMale">Male
-                                <input type="checkbox" name="gender-mobile" id="mobileFilterMale" value="Male">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileFilterFemale">Female
-                                <input type="checkbox" name="gender-mobile" id="mobileFilterFemale" value="Female">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileFilterOther">Others
-                                <input type="checkbox" name="gender-mobile" id="mobileFilterOther" value="Others">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mobile-filter-group">
-                <div class="filter-group-content">
-                    <h4>Subjects</h4>
-                    <div class="options-container-grid">
-                        <div class="checkbox-option">
-                            <label for="mobileSubjectMaths">Maths
-                                <input type="checkbox" name="subject-mobile" id="mobileSubjectMaths" value="Maths">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileSubjectEnglish">English
-                                <input type="checkbox" name="subject-mobile" id="mobileSubjectEnglish" value="English">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileSubjectFrench">French
-                                <input type="checkbox" name="subject-mobile" id="mobileSubjectFrench" value="French">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileSubjectHistory">History
-                                <input type="checkbox" name="subject-mobile" id="mobileSubjectHistory" value="History">
-                                <span class="custom-checkbox"></span>
-                            </label>
+            <div class="filter-mobile-wrapper">
+                <div class="mobile-filter-group">
+                    <div class="filter-group-content">
+                        <h4>Gender</h4>
+                        <div class="options-container-grid">
+                            <div class="checkbox-option">
+                                <label for="mobileFilterMale">Male
+                                    <input type="checkbox" name="gender-mobile" id="mobileFilterMale" value="Male">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileFilterFemale">Female
+                                    <input type="checkbox" name="gender-mobile" id="mobileFilterFemale" value="Female">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileFilterOther">Others
+                                    <input type="checkbox" name="gender-mobile" id="mobileFilterOther" value="Others">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mobile-filter-group">
-                <div class="filter-group-content">
-                    <h4>Exam Center</h4>
-                    <div class="options-container-grid">
-                        <div class="checkbox-option">
-                            <label for="mobileCenterNoida">Noida
-                                <input type="checkbox" name="center-mobile" id="mobileCenterNoida" value="Noida">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileCenterDelhi">Delhi NCR
-                                <input type="checkbox" name="center-mobile" id="mobileCenterDelhi" value="Delhi NCR">
-                                <span class="custom-checkbox"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-option">
-                            <label for="mobileCenterMumbai">Mumbai
-                                <input type="checkbox" name="center-mobile" id="mobileCenterMumbai" value="Mumbai">
-                                <span class="custom-checkbox"></span>
-                            </label>
+                <div class="mobile-filter-group">
+                    <div class="filter-group-content">
+                        <h4>Subjects</h4>
+                        <div class="options-container-grid">
+                            <div class="checkbox-option">
+                                <label for="mobileSubjectMaths">Maths
+                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectMaths" value="Maths">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileSubjectEnglish">English
+                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectEnglish" value="English">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileSubjectFrench">French
+                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectFrench" value="French">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileSubjectHistory">History
+                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectHistory" value="History">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="filter-actions">
-                <button id="mobileApplyFilterButton" class="action-button" type="button" >Apply</button>
-                <button id="mobileClearFilterButton" class="action-button" type="button">Clear</button>
+                <div class="mobile-filter-group">
+                    <div class="filter-group-content">
+                        <h4>Exam Center</h4>
+                        <div class="options-container-grid">
+                            <div class="checkbox-option">
+                                <label for="mobileCenterNoida">Noida
+                                    <input type="checkbox" name="center-mobile" id="mobileCenterNoida" value="Noida">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileCenterDelhi">Delhi NCR
+                                    <input type="checkbox" name="center-mobile" id="mobileCenterDelhi" value="Delhi NCR">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                            <div class="checkbox-option">
+                                <label for="mobileCenterMumbai">Mumbai
+                                    <input type="checkbox" name="center-mobile" id="mobileCenterMumbai" value="Mumbai">
+                                    <span class="custom-checkbox"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button id="mobileApplyFilterButton" class="action-button" type="button" >Apply</button>
+                    <button id="mobileClearFilterButton" class="action-button" type="button">Clear</button>
+                </div>
             </div>
+            
         </div>
     </div>
 
