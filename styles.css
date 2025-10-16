@@ -12,7 +12,7 @@
     --form-bg-color: rgba(50, 55, 68, 0.75);
     --text-color: #e0e0e0;
     --placeholder-color: #a0a0a0;
-    --accent-color: #F4C644; /* Using your yellow gradient as the main accent */
+    --accent-color: #F4C644;
     --input-bg-color: #2c2c2e;
     --border-color: #444;
 }
@@ -58,7 +58,7 @@ body {
 
 .site-logo img {
     width: 120px;
-    height: fit-content;
+    height: auto;
     margin-left: 20px;
 }
 
@@ -1434,6 +1434,10 @@ img {
     width: auto;
 }
 
+.date-input {
+    flex: 0 1 100%;
+}
+
 
 @media (max-width: 1024px){
     .page-wrapper {
@@ -1488,6 +1492,7 @@ img {
     .filter-group-content h4 {
         margin-bottom: 5px;
     }
+    
 
 }
 
@@ -1539,6 +1544,9 @@ img {
      .input-group {
         flex: 1 1 100%;
      }
+    .date-input {
+        flex: 0 1 100%;
+    }
 
 
 }
