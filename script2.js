@@ -524,14 +524,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return genderMatch && centerMatch && subjectMatch;
             });
 
-            if (filteredRegistrations.length === 0) {
-                if (registrations.length > 0) {
-                    clearFilterButton.click(); 
-                } else {
-                    rerenderTable();
-                }
-                return; 
-            }
+            // if (filteredRegistrations.length === 0) {
+            //     if (registrations.length > 0) {
+            //         clearFilterButton.click(); 
+            //     } else {
+            //         rerenderTable();
+            //     }
+            //     return; 
+            // }
 
             if(tableBody) {
                 tableBody.innerHTML = '';
