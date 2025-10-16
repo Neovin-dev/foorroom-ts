@@ -1537,7 +1537,7 @@ img {
      }
 
      .input-group {
-        flex: 100%;
+        flex: 1 1 100%;
      }
 
 
