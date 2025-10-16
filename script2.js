@@ -30,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let emptyStateDefault = document.getElementById("empty-state-default");
     let emptyStateFilter = document.getElementById("empty-state-filters");
 
-    if (window.innerWidth < 1020) {
+    if (window.innerWidth < 1024) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
         if (mobileControls) mobileControls.classList.remove('deactive-style');
     }
 
     function toggleFilterContainerVisibility() {
         if (filterMenu) {
-            if (window.innerWidth < 1020) {
+            if (window.innerWidth < 1024) {
                 filterMenu.classList.add('deactive-style');
             } else {
                 filterMenu.classList.remove('deactive-style');
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (mobileControls) {
-            if (window.innerWidth < 1020) {
+            if (window.innerWidth < 1024) {
                 mobileControls.classList.remove('deactive-style');
             } else {
                 mobileControls.classList.add('deactive-style');
@@ -311,12 +311,12 @@ document.addEventListener("DOMContentLoaded", function () {
             let isEnabled = button.dataset.enabled === "true";
             if (isEnabled) {
                 button.dataset.enabled = "false";
-                if (overlayBackdrop && window.innerWidth < 780) {
+                if (overlayBackdrop && window.innerWidth < 1024) {
                     overlayBackdrop.classList.add("inactive");
                 }
             } else {
                 button.dataset.enabled = "true";
-                if (overlayBackdrop && window.innerWidth < 780) {
+                if (overlayBackdrop && window.innerWidth < 1024) {
                     overlayBackdrop.classList.remove("inactive");
                 }
             }
@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // if (tableContainer) tableContainer.classList.remove('deactive-style');
                 });
             }
-            if (overlayBackdrop && window.innerWidth < 780) {
+            if (overlayBackdrop && window.innerWidth < 1024) {
                 overlayBackdrop.classList.toggle("deactive-style");
             }
 
@@ -578,4 +578,103 @@ document.addEventListener("DOMContentLoaded", function () {
         closeBtn.addEventListener('click', closeFilterOverlay);
         backdrop.addEventListener('click', closeFilterOverlay);
     }
+
+    function performMobileSort(sortType) {
+      if (sortType === "A-Z") registrations.sort((a, b) => a.firstname.localeCompare(b.firstname));
+      else if (sortType === "Z-A") registrations.sort((a, b) => b.firstname.localeCompare(a.firstname));
+      else if (sortType === "O-Y") registrations.sort((a, b) => new Date(a.dob) - new Date(b.dob));
+      else if (sortType === "Y-O") registrations.sort((a, b) => new Date(b.dob) - new Date(a.dob));
+    
+      rerenderTable();
+    }
+
+    function applyMobileFilters() {
+    let selectedGenderCheckBoxes = document.querySelectorAll('#filtersOverlay input[name="gender-mobile"]:checked');
+    let selectedSubjectCheckboxes = document.querySelectorAll('#filtersOverlay input[name="subject-mobile"]:checked');
+    let selectedCenterCheckBoxes = document.querySelectorAll('#filtersOverlay input[name="center-mobile"]:checked');
+
+    let selectedGenders = Array.from(selectedGenderCheckBoxes).map(cb => cb.value.toLowerCase());
+    let selectedSubjects = Array.from(selectedSubjectCheckboxes).map(cb => cb.value.toLowerCase());
+    let selectedCenters = Array.from(selectedCenterCheckBoxes).map(cb => cb.value.toLowerCase());
+
+    let filteredRegistrations = registrations.filter(user => {
+        const genderMatch = selectedGenders.length === 0 || selectedGenders.includes(user.gender.toLowerCase());
+        const centerMatch = selectedCenters.length === 0 || selectedCenters.includes(user.exam.trim().toLowerCase());
+        const subjectMatch = selectedSubjects.length === 0 || user.subjects.some(subject => selectedSubjects.includes(subject.toLowerCase()));
+        return genderMatch && centerMatch && subjectMatch;
+    });
+
+    tableBody.innerHTML = '';
+    filteredRegistrations.forEach(user => {
+        let row = document.createElement("tr");
+        row.setAttribute('data-id', user.id);
+        row.innerHTML = `
+            <td>${user.firstname}</td>
+            <td>${user.lastname}</td>
+            <td>${user.dob}</td>
+            <td>${user.email}</td>
+            <td>${user.tele}</td>
+            <td>${user.exam}</td>
+            <td>${user.gender}</td>
+            <td>${user.subjects.join(', ')}</td>
+            <td><button class="action-button button-register-menu edit-button" type="button"><img src="img/edit_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="Edit"></button></td>
+            <td><button class="action-button button-register-menu delete-button" type="button"><img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="Delete"></button></td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+    if (filteredRegistrations.length === 0) {
+        tableData.classList.add("deactive-style");
+        emptyStateFilter.classList.remove("deactive-style");
+     } else {
+        tableData.classList.remove("deactive-style");
+        emptyStateFilter.classList.add("deactive-style");
+     }
+   }
+
+
+   function clearMobileFilters() {
+    let allCheckBoxes = document.querySelectorAll('#filtersOverlay input[type="checkbox"]');
+    allCheckBoxes.forEach(checkbox => checkbox.checked = false);
+    rerenderTable();
+
+    if (registrations.length > 0) {
+        tableData.classList.remove("deactive-style");
+    }
+    emptyStateFilter.classList.add("deactive-style");
+   }
+
+   const mobileSortOptions = document.querySelector('#sortOverlay .overlay-options');
+const mobileApplyFilterButton = document.getElementById('mobileApplyFilterButton');
+const mobileClearFilterButton = document.getElementById('mobileClearFilterButton');
+
+
+if (mobileSortOptions) {
+    mobileSortOptions.addEventListener('click', function(event) {
+        const sortLink = event.target.closest('li[data-sort]');
+        if (sortLink) {
+            const sortType = sortLink.dataset.sort;
+            performMobileSort(sortType);
+            sortOverlay.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
+        }
+    });
+}
+
+if (mobileApplyFilterButton) {
+    mobileApplyFilterButton.addEventListener('click', function() {
+        applyMobileFilters();
+        filtersOverlay.classList.remove('is-active');
+        document.body.classList.remove('no-scroll');
+    });
+}
+
+if (mobileClearFilterButton) {
+    mobileClearFilterButton.addEventListener('click', function() {
+        clearMobileFilters();
+        filtersOverlay.classList.remove('is-active');
+        document.body.classList.remove('no-scroll');
+    });
+}
+
 });

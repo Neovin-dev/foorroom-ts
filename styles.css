@@ -195,7 +195,7 @@ h4 {
     flex: 1;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-color);
-    min-height: 485px;
+    height: 590px;
     justify-content: flex-start;
     width: calc(100% - 30%);
     align-self: stretch;
@@ -789,7 +789,10 @@ select:focus {
 
 .table-container-div {
     overflow-x: auto;
+    flex-grow: 1;
+    overflow-y: auto;
     width: 100%;
+    min-height: 0;
 }
 
 #filterMenu {
@@ -802,11 +805,22 @@ select:focus {
     display: none;
 }
 
+/* #tableBody {
+    overflow-y: auto;
+} */
+
 table, th {
     padding: 10px 12px;
     border-top: 2px solid var(--border-color);
     border-bottom: 2px solid var(--border-color);
     border-collapse: collapse;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--panel-bg-color); 
 }
 
 td {
@@ -1302,3 +1316,18 @@ label > span:nth-child(2) {
     font-size: 12px;
 }
 
+
+@media (max-width: 1024px){
+    .info-panel {
+        display: none;
+    }
+
+    .form-panel {
+        flex-basis: 100%
+    }
+
+    .data-table-panel {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
