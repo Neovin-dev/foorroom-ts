@@ -45,13 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function filterMobileBarVisibility(){
-        if(registrations.length === 0){
-           if((!mobileControls.classList.contains('deactive-style')) && (window.innerWidth < 1025)) mobileControls.classList.add('deactive-style');
-        } else {
-            if((mobileControls.classList.contains('deactive-style')) && (window.innerWidth < 1025)) mobileControls.classList.remove('deactive-style');
+        if (!mobileControls) return;
+        if (registrations.length === 0 && window.innerWidth < 1025) {
+            mobileControls.classList.add('deactive-style');
+        } else if (registrations.length > 0 && window.innerWidth < 1025) {
+            mobileControls.classList.remove('deactive-style');
+        } else if (window.innerWidth >= 1025) {
+            mobileControls.classList.add('deactive-style');
         }
     }
-
+    filterMobileBarVisibility()
+    
     function toggleFilterContainerVisibility() {
         if (filterMenu) {
             if (window.innerWidth < 1025) {
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('reload', toggleFilterContainerVisibility);
     // window.addEventListener('resize', toggleFilterContainerVisibility);
-    window.addEventListener('change', filterMobileBarVisibility())
+    window.addEventListener('change', filterMobileBarVisibility)
     // reload and resize. load when refreshed
 
 
