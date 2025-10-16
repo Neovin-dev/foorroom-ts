@@ -693,10 +693,10 @@ th {
 
 .checkbox-option .custom-checkbox::after,
 .form-checkbox-option .custom-checkbox::after {
-    top: 2.5px;
-    left: 2.5px;
-    width: 14px;
-    height: 14px;
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 20px;
     background-color: #F4C644;
 }
 
