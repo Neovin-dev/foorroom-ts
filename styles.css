@@ -38,7 +38,7 @@ body {
     background-color: transparent;
     backdrop-filter: blur(20px);
     z-index: 1;
-    height: 60px;
+    height: 50px;
     max-width: 1400px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-color);
@@ -57,7 +57,7 @@ body {
 }
 
 .site-logo img {
-    width: 180px;
+    width: 120px;
     height: fit-content;
     margin-left: 20px;
 }
@@ -66,7 +66,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    margin-top: 80px;
+    /* margin-top: 50px; */
     width: 100%;
     align-items: center;
 }
@@ -88,7 +88,7 @@ body {
 
 
 .info-panel {
-    flex-basis: 50%;
+    flex-basis: 40%;
     background-color: #2A2826;
     padding: 40px;
     display: flex;
@@ -128,10 +128,11 @@ body {
 
 
 .form-panel {
-    flex-basis: 50%;
+    flex-basis: 60%;
     background: #2a282675;
     backdrop-filter: blur(10px);
     padding: 40px;
+    padding-bottom: 10px;
     margin: 10px;
     border-radius: 25px;
     border: 1px solid var(--accent-color);
@@ -142,7 +143,7 @@ body {
     /* margin-bottom: 10px; */
     font-weight: 900;
     font-style: italic;
-    font-size: 32px;
+    font-size: 25px;
 }
 
 .form-content-wrapper h3 span {
@@ -153,7 +154,7 @@ body {
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .gender-selection-group h4, .subject-selection-group h4 {
@@ -197,7 +198,7 @@ h4 {
     flex: 1;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-color);
-    height: 590px;
+    height: 560px;
     justify-content: flex-start;
     width: calc(100% - 30%);
     align-self: stretch;
@@ -215,6 +216,7 @@ h4 {
     border-radius: 20px;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    flex-grow: 1;
 }
 
 .filter-panel h3 {
@@ -253,6 +255,7 @@ select {
     border: none;
     outline: none;
     height: 25px;
+    appearance: none;
 }
 
 .form-row {
@@ -340,7 +343,7 @@ select:focus {
 }
 
 .radio-option > label {
-    font-size: 15px;
+    font-size: 13px;
     height: 100%;
 }
 
@@ -412,7 +415,8 @@ select:focus {
     position: relative;
     padding-left: 25px;
     cursor: pointer;
-    font-size: 16px;
+    padding-top: 2.5px;
+    font-size: 13px;
     --webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -438,9 +442,9 @@ select:focus {
     border: 1px solid #F4C644;
 }
 
-.radio-option:hover input ~ .custom-radio {
+/* .radio-option:hover input ~ .custom-radio {
     background-color: rgba(210, 0, 0, 0.63);
-}
+} */
 
 .radio-option:checked input ~ .custom-radio {
     background-color: rgb(0, 0, 0);
@@ -561,6 +565,10 @@ select:focus {
     border-bottom: none;
 }
 
+th {
+    font-size: 14px;
+}
+
 .card-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -634,6 +642,10 @@ select:focus {
     padding-left: 2px;
 }
 
+.checkbox-option label {
+    font-size: 13px;
+}
+
 .form-checkbox-option {
     justify-self: center;
 }
@@ -701,6 +713,7 @@ select:focus {
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    font-size: 13px;
 }
 
 #formActions {
@@ -709,8 +722,8 @@ select:focus {
     align-items: center;
     justify-content: space-around;
     width: 100%; /* Added for proper centering */
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 
 .submit-button, .action-button {
@@ -831,6 +844,11 @@ td {
     padding: 0px 5px;
     border-bottom: 2px solid var(--border-color);
     border-collapse: collapse;
+    font-size: 13px;
+}
+
+h4 {
+    font-weight: 600;
 }
 
 tr:first-child td:first-child {
@@ -928,11 +946,15 @@ tr:last-child td:last-child {
     background-color: var(--border-color);
     width: 100%;
     padding-top: 5px;
-    height: 40px;
-    width: 50px;
+    height: 30px;
+    width: 40px;
     border: 1px solid var(--border-color);
     border-radius: 10px;
     box-shadow: none;
+}
+
+.button-register-menu img {
+    height: 20px;
 }
 
 td {
@@ -967,7 +989,7 @@ td {
 .dropdown-menu > label {
     display: inline-block;
     text-align: center;
-    padding: 8px 8px;
+    padding: 5px 5px;
     color: #333;
     height: 40px;
     width: 40px;
@@ -995,7 +1017,7 @@ td {
     padding: 6px 0;
     margin: 0;
     list-style: none;
-    height: 190px;
+    height: 175px;
     width: 150px;
     border-radius: 2px;
     box-shadow: 0 3px 8px rgba(0,0,0,.15);
@@ -1009,6 +1031,10 @@ td {
 
 #sortOptionsMenu {
     border-radius: 20px;
+}
+
+#sortOptionsMenu li {
+    font-size: 13px;
 }
 
 .dropdown-menu > input[type="checkbox"]:checked ~ ul {
@@ -1143,12 +1169,12 @@ html {
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .form-checkbox-option {
     display: flex;
     position: relative;
     flex: 40%;
-    padding-bottom: 5px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -1158,6 +1184,14 @@ html {
 
 .overlay-header h3 {
     font-size: 25px;
+}
+
+.sort-button-image{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -1277,7 +1311,7 @@ html {
 .data-table-header .table-title h3 {
     font-weight: 900;
     font-style: italic;
-    font-size: 32px;
+    font-size: 25px;
     /* margin-left: 20px; */
 }
 
@@ -1340,7 +1374,7 @@ label > span:nth-child(2) {
 }
 
 .mobile-filter-group h4 {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .mobile-filter-group .filter-group-content .options-container-grid .checkbox-option{

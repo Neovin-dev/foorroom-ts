@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let emptyStateDefault = document.getElementById("empty-state-default");
     let emptyStateFilter = document.getElementById("empty-state-filters");
+    
+
+    const dataSection = document.getElementById("data-section-container");
 
     if (window.innerWidth < 1025) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
@@ -84,8 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
             row.setAttribute('data-id', user.id);
 
             row.innerHTML = `
-                <td>${user.firstname}</td>
-                <td>${user.lastname}</td>
+                <td>${user.firstname} ${user.lastname}</td>
                 <td>${user.dob}</td>
                 <td>${user.email}</td>
                 <td>${user.tele}</td>
@@ -109,12 +111,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (filterBar) filterBar.classList.add('deactive-style');
             // if (sortControls) sortControls.classList.add('deactive-style');
             if (tableContainer) tableContainer.classList.add('deactive-style');
+            if(dataSection && !(dataSection.classList.contains('deative-style'))) dataSection.classList.add('deactive-style');
         } else {
             // if (dataTablePanel) dataTablePanel.classList.remove('deactive-style');
             if(tableData) tableData.classList.remove("deactive-style");
             if (filterBar) filterBar.classList.remove('deactive-style');
             // if (sortControls) sortControls.classList.remove('deactive-style');
             if (tableContainer) tableContainer.classList.remove('deactive-style');
+            if(dataSection) dataSection.classList.remove('deactive-style');
         }
 
         if (emptyStateDefault) {
@@ -422,9 +426,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     rerenderTable();
                     if(registrations.length > 0){
                         tableData.classList.remove("deactive-style");
+                        console.log("emptyStatfdeFilter", tableBody)
                     }
                     
                     emptyStateFilter.classList.add("deactive-style");
+                    
                 })();
 
                 if (tableBody.rows.length === 0) {
@@ -458,7 +464,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 let userId = parseInt(row.dataset.id);
                 registrations = registrations.filter(user => user.id !== userId);
                 row.remove();
+                if(dataSection && !(dataSection.classList.contains('deative-style')) && (registrations.length === 0)) dataSection.classList.add('deactive-style');
+                deleteMode = true;
                 applyFilterButton.click();
+                
                 // simulate a click as the applyFilterButton is a click event listner
 
                 // if (tableBody.rows.length === 1) { 
@@ -504,7 +513,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let applyFilterButton = document.getElementById("applyFilterButton");
     let clearFilterButton = document.getElementById("clearFilterButton");
-
+    let deleteMode = false;
     if (applyFilterButton) {
         applyFilterButton.addEventListener("click", function () {
             // if (filterMenu) filterMenu.classList.toggle('deactive-style');
@@ -562,13 +571,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 overlayBackdrop.classList.toggle("deactive-style");
             }
 
-            if(filteredRegistrations.length === 0){
+            if(!deleteMode){
+                deleteMode = false;
+                if(filteredRegistrations.length === 0){
                 tableData.classList.add("deactive-style");
                 emptyStateFilter.classList.remove("deactive-style");
-            }else {
-                tableData.classList.remove("deactive-style");
-                emptyStateFilter.classList.add("deactive-style");
+                console.log("emptyStateFdfilter applyFiters")
+                }else {
+                    tableData.classList.remove("deactive-style");
+                    emptyStateFilter.classList.add("deactive-style");
+                    
+                }
             }
+
+            
         });
     }
 
@@ -579,9 +595,11 @@ document.addEventListener("DOMContentLoaded", function () {
             rerenderTable();
             if(registrations.length > 0){
                 tableData.classList.remove("deactive-style");
+                console.log("emptyStateFilter clear")
             }
             
             emptyStateFilter.classList.add("deactive-style");
+            
             
         });
     }
@@ -678,9 +696,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (filteredRegistrations.length === 0) {
         tableData.classList.add("deactive-style");
         emptyStateFilter.classList.remove("deactive-style");
+         console.log("emptyStateFilter apply filtered")
      } else {
         tableData.classList.remove("deactive-style");
         emptyStateFilter.classList.add("deactive-style");
+       
      }
    }
 
@@ -692,8 +712,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (registrations.length > 0) {
         tableData.classList.remove("deactive-style");
+        console.log("emptyStateFilter clear mobile")
     }
     emptyStateFilter.classList.add("deactive-style");
+    
    }
 
    const mobileSortOptions = document.querySelector('#sortOverlay .overlay-options');

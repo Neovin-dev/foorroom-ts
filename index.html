@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="animated-background">
         <span></span>
         <span></span>
@@ -56,7 +57,7 @@
 
                             <div class="input-group block">
                                 <label for="dateOfBirth">Date of Birth<span> *</span><span class="error-message" id="dateOfBirthError"></span></label>
-                                <input type="date" id="dateOfBirth" name="dob" onclick="showPicker()" required>
+                                <input type="date" id="dateOfBirth" name="dob" style="color: #a0a0a0" onclick="showPicker()" required>
                             </div>
                             <div class="input-group block">
                                 <label for="emailAddress">Email Address<span> *</span><span class="error-message" id="emailAddressError"></span></label>
@@ -116,11 +117,11 @@
                             </div>
                             <div class="input-group">
                                 <label for="examCenter">Exam Center<span> *</span><span class="error-message" id="examCenterError"></span></label>
-                                <select name="exam" id="examCenter">
-                                    <option value="" hidden>-- Choose an exam center --</option>
-                                    <option value="Noida">Noida</option>
-                                    <option value="Delhi Ncr">Delhi NCR</option>
-                                    <option value="Mumbai">Mumbai</option>
+                                <select name="exam" id="examCenter" style="color: #a0a0a0; border: none; background-color: #473E2B;">
+                                    <option value="" hidden>Choose an exam center</option>
+                                    <option value="Noida" style="color: white">Noida</option>
+                                    <option value="Delhi Ncr" style="color: white">Delhi NCR</option>
+                                    <option value="Mumbai" style="color: white">Mumbai</option>
                                 </select>
                             </div>
                         
@@ -133,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="data-section">
+        <div id="data-section-container" class="data-section deactive-style">
             <div id="filterMenu" class="filter-panel">
                 <h3 >Filters </h3>
                 <div class="filter-group">
@@ -237,7 +238,7 @@
                             <div id="sortControls">
                                 <div class="dropdown-menu" id="sortDropdown">
                                     <input type="checkbox" id="sortDropdownToggle" value="">
-                                    <label for="sortDropdownToggle" data-toggle="dropdown"> <img src="img/sort_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""> </label>
+                                    <label for="sortDropdownToggle" data-toggle="dropdown"> <img class="sort-button-image" src="img/sort-amount-down-svgrepo-com (3).svg" alt=""> </label>
                                     <ul id="sortOptionsMenu">
                                         <li data-sort="A-Z">Name (A-Z)</li>
                                         <li data-sort="Z-A">Name (Z-A)</li>
@@ -253,8 +254,7 @@
                         <table id="table-container" class="deactive-style">
                             <thead>
                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Name</th>
                                     <th>D.O.B</th>
                                     <th>Email</th>
                                     <th>Mobile no.</th>
