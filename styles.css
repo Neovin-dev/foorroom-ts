@@ -1434,26 +1434,9 @@ img {
     width: auto;
 }
 
-.date-input {
-    flex: 0 1 100%;
-}
 
-input::placeholder {
-    font-size: 16px;
-}
 
-input::-webkit-input-placeholder {
-    font-size: 16px;
-}
 
-input::-moz-placeholder {
-    font-size: 16px;
-    opacity: 1;
-}
-
-input:-ms-input-placeholder {
-    font-size: 16px;
-}
 
 
 @media (max-width: 1024px){
@@ -1565,6 +1548,25 @@ input:-ms-input-placeholder {
         flex: 0 1 100%;
     }
 
+    input::placeholder {
+    font-size: 16px;
+    }
+
+    input::-webkit-input-placeholder {
+        font-size: 16px;
+    }
+
+    input::-moz-placeholder {
+        font-size: 16px;
+        opacity: 1;
+    }
+
+    input:-ms-input-placeholder {
+        font-size: 16px;
+    }
+    .date-input {
+    flex: 0 1 100%;
+    }
 
 }
 
