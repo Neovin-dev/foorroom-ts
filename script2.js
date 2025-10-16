@@ -499,7 +499,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 else if (sortType === "O-Y") registrations.sort((a, b) => new Date(a.dob) - new Date(b.dob));
                 else if (sortType === "Y-O") registrations.sort((a, b) => new Date(b.dob) - new Date(a.dob));
             }
-            rerenderTable();
+            if(applyFilterButton){
+                applyFilterButton.click();
+            }else {
+                rerenderTable();
+            }
 
             if (tableBody && tableBody.rows.length < 1) {
                 if(filterBar) filterBar.classList.add('deactive-style');
@@ -726,7 +730,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const sortLink = event.target.closest('li[data-sort]');
             if (sortLink) {
                 const sortType = sortLink.dataset.sort;
-                performMobileSort(sortType);
+                if (sortType === "A-Z") registrations.sort((a, b) => a.firstname.localeCompare(b.firstname));
+                else if (sortType === "Z-A") registrations.sort((a, b) => b.firstname.localeCompare(a.firstname));
+                else if (sortType === "O-Y") registrations.sort((a, b) => new Date(a.dob) - new Date(b.dob));
+                else if (sortType === "Y-O") registrations.sort((a, b) => new Date(b.dob) - new Date(a.dob));
+
+                applyMobileFilters();
                 sortOverlay.classList.remove('is-active');
                 document.body.classList.remove('no-scroll');
             }
