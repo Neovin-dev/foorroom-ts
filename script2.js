@@ -38,24 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (window.innerWidth < 1025) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
-        if (mobileControls) mobileControls.classList.remove('deactive-style');
+        // if (mobileControls) mobileControls.classList.remove('deactive-style');
         if(sortControls) sortControls.classList.add('deactive-style');
     }else {
         if(sortControls && sortControls.classList.contains('deactive-style')) sortControls.classList.remove('deactive-style');
     }
 
-    function filterMobileBarVisibility(){
-        if (!mobileControls) return;
-        if (registrations.length === 0 && window.innerWidth < 1025) {
-            mobileControls.classList.add('deactive-style');
-        } else if (registrations.length > 0 && window.innerWidth < 1025) {
-            mobileControls.classList.remove('deactive-style');
-        } else if (window.innerWidth >= 1025) {
-            mobileControls.classList.add('deactive-style');
-        }
-    }
-    filterMobileBarVisibility()
-    
     function toggleFilterContainerVisibility() {
         if (filterMenu) {
             if (window.innerWidth < 1025) {
@@ -65,13 +53,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        if (mobileControls) {
-            if (window.innerWidth < 1025) {
-                mobileControls.classList.remove('deactive-style');
-            } else {
-                mobileControls.classList.add('deactive-style');
-            }
-        }
+        // if (mobileControls) {
+        //     if (window.innerWidth < 1025) {
+        //         mobileControls.classList.remove('deactive-style');
+        //     } else {
+        //         mobileControls.classList.add('deactive-style');
+        //     }
+        // }
 
         if (sortControls) {
             if (window.innerWidth < 1025) {
@@ -86,8 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // check on intial load
 
     window.addEventListener('reload', toggleFilterContainerVisibility);
-    // window.addEventListener('resize', toggleFilterContainerVisibility);
-    window.addEventListener('change', filterMobileBarVisibility)
+    window.addEventListener('resize', toggleFilterContainerVisibility);
+    // window.addEventListener('change', filterMobileBarVisibility)
     // reload and resize. load when refreshed
 
 
@@ -368,6 +356,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 100);
            
         }
+
+        if(window.innerWidth < 1025){
+            mobileControls.classList.remove('deactive-style')
+        }
         
         rerenderTable();
         registrationForm.reset();
@@ -471,6 +463,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     tableData.classList.add("deactive-style")
                 }
 
+                if(window.innerWidth < 1025){
+                   if(registrations.length === 0) mobileControls.classList.add('deactive-style')
+                }
+
                 window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
@@ -485,7 +481,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(dataSection && !(dataSection.classList.contains('deative-style')) && (registrations.length === 0)) dataSection.classList.add('deactive-style');
                 if(filteredRegistrations.length === 0) dataSection.classList.add('deactive-style');
                 deleteMode = true;
+                if(window.innerWidth < 1025){
+                   if(registrations.length === 0 || filteredRegistrations.length === 0) mobileControls.classList.add('deactive-style')
+                }
                 applyFilterButton.click();
+
+                
                 
                 // simulate a click as the applyFilterButton is a click event listner
 
@@ -596,13 +597,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if(!deleteMode){
                 deleteMode = false;
                 if(filteredRegistrations.length === 0){
+                    mobileControls.classList.add("deactive-style");
                 tableData.classList.add("deactive-style");
                 emptyStateFilter.classList.remove("deactive-style");
                 console.log("emptyStateFdfilter applyFiters")
                 }else {
                     tableData.classList.remove("deactive-style");
                     emptyStateFilter.classList.add("deactive-style");
-                    
+                     mobileControls.classList.remove("deactive-style");
                 }
             }
 
