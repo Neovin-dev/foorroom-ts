@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let phoneInput = document.getElementById("phoneNumber");
     let examCenterInput = document.getElementById("examCenter");
     // let pageRefreshButton = document.getElementById('pageRefreshButton');
+    let submitButton = document.querySelector('.submit-button');
 
     let tableBody = document.getElementById("tableBody");
 
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (mobileControls) mobileControls.classList.remove('deactive-style');
         if(sortControls) sortControls.classList.add('deactive-style');
     }else {
-        if(sortControls && sortControls.classList.includes('deactive-style')) sortControls.classList.remove('deactive-style');
+        if(sortControls && sortControls.classList.contains('deactive-style')) sortControls.classList.remove('deactive-style');
     }
 
     function toggleFilterContainerVisibility() {
@@ -130,9 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastNameeError = document.getElementById("lastNameError");
     const dateOfBirthError = document.getElementById("dateOfBirthError");
     const emailAddressError = document.getElementById("emailAddressError");
-    const genderError = document.getElementById("genderError");
+    // const genderError = document.getElementById("genderError");
     const phoneNumberError = document.getElementById("phoneNumberError");
-    const examCenterError = document.getElementById("examCenterError");
+    // const examCenterError = document.getElementById("examCenterError");
     const subjectError= document.getElementById("subjectError");
 
     // UPLOAD THE DATA TO form and update registrations.
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function validateName(name) {
             const namePattern = /^[a-zA-Z\s]+$/; 
             if (name.trim() === "") return "Name is required.";
-            if (name.length < 2) return "must be at least 3 characters.";
+            if (name.length < 2) return "must be at least 2 characters.";
             if (!namePattern.test(name)) return "Name can only contain letters and spaces.";
             return "";
         }
@@ -168,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         function validateDate(dob) {
+            if (!dob) return "Date of Birth is required.";
             const today = new Date();
             const date = new Date(dob);
             const minimumAge = new Date();
@@ -187,8 +189,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!isSubjectSelected) {
             event.preventDefault();
-            alert("Please select at least one subject.");
+            subjectError.innerText = 'Select atleast one subject';
             return;
+        }else {
+            subjectError.innerText = '';
         }
 
         let firstnameValue = firstNameInput.value.trim();
@@ -277,13 +281,13 @@ document.addEventListener("DOMContentLoaded", function () {
         // if (sortControls) sortControls.classList.remove('deactive-style');
         if (tableContainer) tableContainer.classList.remove('deactive-style');
 
-        if(emptyStateDefault){
-            if(registrations.length > 0){
-                emptyStateDefault.classList.remove('deactive-style');
-            }else {
-                emptyStateDefault.classList.add('deactive-style');
-            }
-        }
+        // if(emptyStateDefault){
+        //     if(registrations.length > 0){
+        //         emptyStateDefault.classList.remove('deactive-style');
+        //     }else {
+        //         emptyStateDefault.classList.add('deactive-style');
+        //     }
+        // }
 
         let gender = document.querySelector('input[name="gender"]:checked');
         let currentId = registrations.length > 0 ? Math.max(...registrations.map(u => u.id)) + 1 : 0;
@@ -366,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    const submitButton = document.querySelector('.submit-button');
+    
    
 
     if (tableBody) {
@@ -693,36 +697,36 @@ document.addEventListener("DOMContentLoaded", function () {
    }
 
    const mobileSortOptions = document.querySelector('#sortOverlay .overlay-options');
-const mobileApplyFilterButton = document.getElementById('mobileApplyFilterButton');
-const mobileClearFilterButton = document.getElementById('mobileClearFilterButton');
+    const mobileApplyFilterButton = document.getElementById('mobileApplyFilterButton');
+    const mobileClearFilterButton = document.getElementById('mobileClearFilterButton');
 
 
-if (mobileSortOptions) {
-    mobileSortOptions.addEventListener('click', function(event) {
-        const sortLink = event.target.closest('li[data-sort]');
-        if (sortLink) {
-            const sortType = sortLink.dataset.sort;
-            performMobileSort(sortType);
-            sortOverlay.classList.remove('is-active');
+    if (mobileSortOptions) {
+        mobileSortOptions.addEventListener('click', function(event) {
+            const sortLink = event.target.closest('li[data-sort]');
+            if (sortLink) {
+                const sortType = sortLink.dataset.sort;
+                performMobileSort(sortType);
+                sortOverlay.classList.remove('is-active');
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    }
+
+    if (mobileApplyFilterButton) {
+        mobileApplyFilterButton.addEventListener('click', function() {
+            applyMobileFilters();
+            filtersOverlay.classList.remove('is-active');
             document.body.classList.remove('no-scroll');
-        }
-    });
-}
+        });
+    }
 
-if (mobileApplyFilterButton) {
-    mobileApplyFilterButton.addEventListener('click', function() {
-        applyMobileFilters();
-        filtersOverlay.classList.remove('is-active');
-        document.body.classList.remove('no-scroll');
-    });
-}
-
-if (mobileClearFilterButton) {
-    mobileClearFilterButton.addEventListener('click', function() {
-        clearMobileFilters();
-        filtersOverlay.classList.remove('is-active');
-        document.body.classList.remove('no-scroll');
-    });
-}
+    if (mobileClearFilterButton) {
+        mobileClearFilterButton.addEventListener('click', function() {
+            clearMobileFilters();
+            filtersOverlay.classList.remove('is-active');
+            document.body.classList.remove('no-scroll');
+        });
+    }
 
 });
