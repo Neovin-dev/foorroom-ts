@@ -583,7 +583,7 @@ th {
 }
 
 .sort-panel li {
-  padding: 15px;
+  padding: 13px;
   cursor: pointer;
   text-align: center;
 }
@@ -1435,6 +1435,9 @@ img {
 
 
 @media (max-width: 1024px){
+    .page-wrapper {
+        padding-top: 40px;
+    }
     .info-panel {
         display: none;
     }
@@ -1493,7 +1496,7 @@ img {
     } */
      .page-wrapper {
         margin: 0;
-        margin-top: 70px;
+        margin-top: 20px;
      }
 
      .content-panel {
