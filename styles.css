@@ -21,7 +21,7 @@ body {
     font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     min-height: 100vh;
     background: #3F5EFB;
@@ -29,6 +29,7 @@ body {
     color: var(--text-color);
     margin: 2px;
     /* padding: 20px; */
+    
 
 }
 
@@ -1521,6 +1522,7 @@ img {
 }
 
 @media (max-width: 767px){
+
     /* .input-group.block {
         flex: 50%;
     } */
@@ -1592,8 +1594,9 @@ img {
     input:-ms-input-placeholder {
         font-size: 16px;
     }
+
     .date-input {
-    flex: 0 1 100%;
+        flex: 0 1 100%;
     }
 
 }

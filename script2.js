@@ -34,12 +34,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dataSection = document.getElementById("data-section-container");
 
+    
+
     if (window.innerWidth < 1025) {
         if (filterMenu) filterMenu.classList.add('deactive-style');
         if (mobileControls) mobileControls.classList.remove('deactive-style');
         if(sortControls) sortControls.classList.add('deactive-style');
     }else {
         if(sortControls && sortControls.classList.contains('deactive-style')) sortControls.classList.remove('deactive-style');
+    }
+
+    function filterMobileBarVisibility(){
+        if(registrations.length === 0){
+           if((!mobileControls.classList.contains('deactive-style')) && (window.innerWidth < 1025)) mobileControls.classList.add('deactive-style');
+        } else {
+            if((mobileControls.classList.contains('deactive-style')) && (window.innerWidth < 1025)) mobileControls.classList.remove('deactive-style');
+        }
     }
 
     function toggleFilterContainerVisibility() {
@@ -72,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // check on intial load
 
     window.addEventListener('reload', toggleFilterContainerVisibility);
-    window.addEventListener('resize', toggleFilterContainerVisibility);
+    // window.addEventListener('resize', toggleFilterContainerVisibility);
+    window.addEventListener('change', filterMobileBarVisibility())
     // reload and resize. load when refreshed
 
 
@@ -345,10 +356,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // }
         if(isFormValid){
-           window.scrollTo({
+            setTimeout(() => {
+                window.scrollTo({
                 top: document.body.scrollHeight,
                 behavior: 'smooth'
-            }); 
+                }); 
+            }, 100);
+           
         }
         
         rerenderTable();
