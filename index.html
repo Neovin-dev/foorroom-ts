@@ -1,265 +1,532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
-    <link rel="shortcut icon" href="img/form-favi.svg" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu6gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registration Form</title>
+        <link
+            rel="shortcut icon"
+            href="img/form-favi.svg"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu6gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href="./styles/styles.css" />
+    </head>
 
-<body>
-<div class="background">
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-   <span></span>
-</div>
-
-    <header class="site-header">
-        <div class="site-logo">
-            <img onclick="location.reload()" src="img/logo-light-with-logo.png" alt="Company Logo">
+    <body>
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </header>
 
-    <main class="page-wrapper">
-        <div class="content-panel">
-            <div class="info-panel">
-                <img src="img/electron-rotating-1.gif" alt="Decorative Animation" class="info-graphic">
-                <h2 ><img src="img/logo-light.png"  alt="Company Light Logo"></h2>
-                <p>Fast and relevant search solution for small, medium or entreprise level e-commerce websites and mobile apps.</p>
+        <header class="site-header">
+            <div class="site-logo">
+                <img
+                    onclick="location.reload()"
+                    src="img/logo-light-with-logo.png"
+                    alt="Company Logo"
+                />
             </div>
+        </header>
 
-            <div class="form-panel">
-                <div class="form-content-wrapper">
-                    <h3 >Registration <span >Form</span></h3>
+        <main class="page-wrapper">
+            <div class="content-panel">
+                <div class="info-panel">
+                    <img
+                        src="img/electron-rotating-1.gif"
+                        alt="Decorative Animation"
+                        class="info-graphic"
+                    />
+                    <h2>
+                        <img
+                            src="img/logo-light.png"
+                            alt="Company Light Logo"
+                        />
+                    </h2>
+                    <p>
+                        Fast and relevant search solution for small, medium or
+                        entreprise level e-commerce websites and mobile apps.
+                    </p>
+                </div>
 
-                    <form id="registrationForm">
+                <div class="form-panel">
+                    <div class="form-content-wrapper">
+                        <h3>Registration <span>Form</span></h3>
 
+                        <form id="registrationForm">
                             <div class="input-group">
-                                <label for="firstName">First Name<span> *</span><span class="error-message" id="firstNameError"></span></label>
-                                <input type="text" id="firstName" name="fname" maxlength="20" placeholder="Enter your first name" required>
+                                <label for="firstName"
+                                    >First Name<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="firstNameError"
+                                    ></span
+                                ></label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="fname"
+                                    maxlength="20"
+                                    placeholder="Enter your first name"
+                                    required
+                                />
                             </div>
                             <div class="input-group">
-                                <label for="lastName">Last Name<span> *</span><span class="error-message" id="lastNameError"></span></label>
-                                <input type="text" id="lastName" name="lname" maxlength="20" placeholder="Enter your last name" required>
+                                <label for="lastName"
+                                    >Last Name<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="lastNameError"
+                                    ></span
+                                ></label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lname"
+                                    maxlength="20"
+                                    placeholder="Enter your last name"
+                                    required
+                                />
                             </div>
 
                             <div class="input-group date-input">
-                                <label for="dateOfBirth">Date of Birth<span> *</span><span class="error-message" id="dateOfBirthError"></span></label>
-                                <input type="date" id="dateOfBirth" name="dob" style="color: #a0a0a0" onclick="showPicker()" required>
+                                <label for="dateOfBirth"
+                                    >Date of Birth<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="dateOfBirthError"
+                                    ></span
+                                ></label>
+                                <input
+                                    type="date"
+                                    id="dateOfBirth"
+                                    name="dob"
+                                    style="color: #a0a0a0"
+                                    onclick="showPicker()"
+                                    required
+                                />
                             </div>
                             <div class="input-group">
-                                <label for="emailAddress">Email Address<span> *</span><span class="error-message" id="emailAddressError"></span></label>
-                                <input type="email" id="emailAddress" name="email" placeholder="Enter your Email Address" required>
+                                <label for="emailAddress"
+                                    >Email Address<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="emailAddressError"
+                                    ></span
+                                ></label>
+                                <input
+                                    type="email"
+                                    id="emailAddress"
+                                    name="email"
+                                    placeholder="Enter your Email Address"
+                                    required
+                                />
                             </div>
 
-                            <div class="gender-selection-group ">
-                                <h4>Gender<span> *</span><span class="error-message" id="genderError"></span></h4>
+                            <div class="gender-selection-group">
+                                <h4>
+                                    Gender<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="genderError"
+                                    ></span>
+                                </h4>
                                 <div class="options-container">
-                                    <label class="radio-option">Male
-                                        <input type="radio" name="gender" id="genderMale" required>
+                                    <label class="radio-option"
+                                        >Male
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            id="genderMale"
+                                            required
+                                        />
                                         <span class="custom-radio"></span>
                                     </label>
-                                    <label class="radio-option">Female
-                                        <input type="radio" name="gender" id="genderFemale">
+                                    <label class="radio-option"
+                                        >Female
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            id="genderFemale"
+                                        />
                                         <span class="custom-radio"></span>
                                     </label>
-                                    <label class="radio-option">Others
-                                        <input type="radio" name="gender" id="genderOther">
+                                    <label class="radio-option"
+                                        >Others
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            id="genderOther"
+                                        />
                                         <span class="custom-radio"></span>
                                     </label>
                                 </div>
                             </div>
-                            <div class="input-group ">
-                                <label for="phoneNumber">Phone number<span> *</span><span class="error-message" id="phoneNumberError"></span></label>
-                                <input type="text" inputmode="numeric" pattern="\d*" min="0" maxlength="10" id="phoneNumber" name="telenum" placeholder="Enter your Phone Number" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
+                            <div class="input-group">
+                                <label for="phoneNumber"
+                                    >Phone number<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="phoneNumberError"
+                                    ></span
+                                ></label>
+                                <input
+                                    type="text"
+                                    inputmode="numeric"
+                                    pattern="\d*"
+                                    min="0"
+                                    maxlength="10"
+                                    id="phoneNumber"
+                                    name="telenum"
+                                    placeholder="Enter your Phone Number"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+                                    required
+                                />
                             </div>
 
                             <div class="subject-selection-group">
-                                <h4>Subjects<span> *</span><span class="error-message" id="subjectError"></span></h4>
+                                <h4>
+                                    Subjects<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="subjectError"
+                                    ></span>
+                                </h4>
                                 <div class="form-container-grid">
                                     <div class="form-checkbox-option">
-                                        <label for="subjectMaths">Maths
-                                            <input type="checkbox" name="maths" id="subjectMaths">
-                                            <span class="custom-checkbox"></span>
+                                        <label for="subjectMaths"
+                                            >Maths
+                                            <input
+                                                type="checkbox"
+                                                name="maths"
+                                                id="subjectMaths"
+                                            />
+                                            <span
+                                                class="custom-checkbox"
+                                            ></span>
                                         </label>
                                     </div>
                                     <div class="form-checkbox-option">
-                                        <label for="subjectEnglish">English
-                                            <input type="checkbox" name="english" id="subjectEnglish">
-                                            <span class="custom-checkbox"></span>
+                                        <label for="subjectEnglish"
+                                            >English
+                                            <input
+                                                type="checkbox"
+                                                name="english"
+                                                id="subjectEnglish"
+                                            />
+                                            <span
+                                                class="custom-checkbox"
+                                            ></span>
                                         </label>
                                     </div>
                                     <div class="form-checkbox-option">
-                                        <label for="subjectFrench">French
-                                            <input type="checkbox" name="french" id="subjectFrench">
-                                            <span class="custom-checkbox"></span>
+                                        <label for="subjectFrench"
+                                            >French
+                                            <input
+                                                type="checkbox"
+                                                name="french"
+                                                id="subjectFrench"
+                                            />
+                                            <span
+                                                class="custom-checkbox"
+                                            ></span>
                                         </label>
                                     </div>
                                     <div class="form-checkbox-option">
-                                        <label for="subjectHistory">History
-                                            <input type="checkbox" name="history" id="subjectHistory">
-                                            <span class="custom-checkbox"></span>
+                                        <label for="subjectHistory"
+                                            >History
+                                            <input
+                                                type="checkbox"
+                                                name="history"
+                                                id="subjectHistory"
+                                            />
+                                            <span
+                                                class="custom-checkbox"
+                                            ></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                             <div class="input-group">
-                                <label for="examCenter">Exam Center<span> *</span><span class="error-message" id="examCenterError"></span></label>
-                                <select name="exam" id="examCenter" style="color: #a0a0a0; border: none; background-color: #473E2B;">
-                                    <option value="" hidden>Choose an exam center</option>
-                                    <option value="Noida" style="color: white">Noida</option>
-                                    <option value="Delhi Ncr" style="color: white">Delhi NCR</option>
-                                    <option value="Mumbai" style="color: white">Mumbai</option>
+                                <label for="examCenter"
+                                    >Exam Center<span> *</span
+                                    ><span
+                                        class="error-message"
+                                        id="examCenterError"
+                                    ></span
+                                ></label>
+                                <select
+                                    name="exam"
+                                    id="examCenter"
+                                    style="
+                                        color: #a0a0a0;
+                                        border: none;
+                                        background-color: #473e2b;
+                                    "
+                                >
+                                    <option value="" hidden>
+                                        Choose an exam center
+                                    </option>
+                                    <option value="Noida" style="color: white">
+                                        Noida
+                                    </option>
+                                    <option
+                                        value="Delhi Ncr"
+                                        style="color: white"
+                                    >
+                                        Delhi NCR
+                                    </option>
+                                    <option value="Mumbai" style="color: white">
+                                        Mumbai
+                                    </option>
                                 </select>
                             </div>
-                        
-                        <div id="formActions">
-                            <button class="submit-button full-width" type="submit">
-                                Register
-                            </button>
-                        </div>
-                    </form>
+
+                            <div id="formActions">
+                                <button
+                                    class="submit-button full-width"
+                                    type="submit"
+                                >
+                                    Register
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="data-section-container" class="data-section deactive-style">
-            <div id="filterMenu" class="filter-panel">
-                <h3 >Filters </h3>
-                <div class="filter-group">
-                    <div class="filter-group-content">
-                        <h4>Gender</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="filterGenderMale">Male
-                                    <input type="checkbox" name="gender-filter" id="filterGenderMale" value="Male">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterGenderFemale">Female
-                                    <input type="checkbox" name="gender-filter" id="filterGenderFemale" value="Female">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterGenderOther">Others
-                                    <input type="checkbox" name="gender-filter" id="filterGenderOther" value="Others">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-group-content">
-                        <h4>Subjects</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="filterSubjectMaths">Maths
-                                    <input type="checkbox" name="subject" id="filterSubjectMaths" value="Maths">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterSubjectEnglish">English
-                                    <input type="checkbox" name="subject" id="filterSubjectEnglish" value="English">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterSubjectFrench">French
-                                    <input type="checkbox" name="subject" id="filterSubjectFrench" value="French">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterSubjectHistory">History
-                                    <input type="checkbox" name="subject" id="filterSubjectHistory" value="History">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-group-content">
-                        <h4>Exam Center</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="filterCenterNoida">Noida
-                                    <input type="checkbox" name="center" id="filterCenterNoida" value="Noida">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterCenterDelhi">Delhi NCR
-                                    <input type="checkbox" name="center" id="filterCenterDelhi" value="Delhi NCR">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="filterCenterMumbai">Mumbai
-                                    <input type="checkbox" name="center" id="filterCenterMumbai" value="Mumbai">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-actions">
-                    <button id="applyFilterButton" class="action-button" type="button" >Apply</button>
-                    <button id="clearFilterButton" class="action-button" type="button" >Clear</button>
-                </div>
-
-            </div>
-
-            <div class="data-table-panel" id="dataTable">
-                <div class="data-table-header">
-                    <div class="table-controls-bar">
-                        <div class="table-title">
-                            <h3 >Registration <span >Data</span></h3>
-                        </div>
-                        <div id="tableToolbar">
-                            <div id="sortControls">
-                                <div class="dropdown-menu" id="sortDropdown">
-                                    <input type="checkbox" id="sortDropdownToggle" value="">
-                                    <label for="sortDropdownToggle" data-toggle="dropdown"> <img class="sort-button-image" src="img/sort-amount-down-svgrepo-com (3).svg" alt=""> </label>
-                                    <ul id="sortOptionsMenu">
-                                        <li data-sort="A-Z">Name (A-Z)</li>
-                                        <li data-sort="Z-A">Name (Z-A)</li>
-                                        <li data-sort="O-Y">Age (Desc)</li>
-                                        <li data-sort="Y-O">Age (ASC)</li>
-                                    </ul>
+            <div
+                id="data-section-container"
+                class="data-section deactive-style"
+            >
+                <div id="filterMenu" class="filter-panel">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <div class="filter-group-content">
+                            <h4>Gender</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="filterGenderMale"
+                                        >Male
+                                        <input
+                                            type="checkbox"
+                                            name="gender-filter"
+                                            id="filterGenderMale"
+                                            value="Male"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterGenderFemale"
+                                        >Female
+                                        <input
+                                            type="checkbox"
+                                            name="gender-filter"
+                                            id="filterGenderFemale"
+                                            value="Female"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterGenderOther"
+                                        >Others
+                                        <input
+                                            type="checkbox"
+                                            name="gender-filter"
+                                            id="filterGenderOther"
+                                            value="Others"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="filter-group">
+                        <div class="filter-group-content">
+                            <h4>Subjects</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="filterSubjectMaths"
+                                        >Maths
+                                        <input
+                                            type="checkbox"
+                                            name="subject"
+                                            id="filterSubjectMaths"
+                                            value="Maths"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterSubjectEnglish"
+                                        >English
+                                        <input
+                                            type="checkbox"
+                                            name="subject"
+                                            id="filterSubjectEnglish"
+                                            value="English"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterSubjectFrench"
+                                        >French
+                                        <input
+                                            type="checkbox"
+                                            name="subject"
+                                            id="filterSubjectFrench"
+                                            value="French"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterSubjectHistory"
+                                        >History
+                                        <input
+                                            type="checkbox"
+                                            name="subject"
+                                            id="filterSubjectHistory"
+                                            value="History"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-group-content">
+                            <h4>Exam Center</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="filterCenterNoida"
+                                        >Noida
+                                        <input
+                                            type="checkbox"
+                                            name="center"
+                                            id="filterCenterNoida"
+                                            value="Noida"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterCenterDelhi"
+                                        >Delhi NCR
+                                        <input
+                                            type="checkbox"
+                                            name="center"
+                                            id="filterCenterDelhi"
+                                            value="Delhi NCR"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="filterCenterMumbai"
+                                        >Mumbai
+                                        <input
+                                            type="checkbox"
+                                            name="center"
+                                            id="filterCenterMumbai"
+                                            value="Mumbai"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-actions">
+                        <button
+                            id="applyFilterButton"
+                            class="action-button"
+                            type="button"
+                        >
+                            Apply
+                        </button>
+                        <button
+                            id="clearFilterButton"
+                            class="action-button"
+                            type="button"
+                        >
+                            Clear
+                        </button>
+                    </div>
                 </div>
-                <div class="table-container-div">
+
+                <div class="data-table-panel" id="dataTable">
+                    <div class="data-table-header">
+                        <div class="table-controls-bar">
+                            <div class="table-title">
+                                <h3>Registration <span>Data</span></h3>
+                            </div>
+                            <div id="tableToolbar">
+                                <div id="sortControls">
+                                    <div
+                                        class="dropdown-menu"
+                                        id="sortDropdown"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            id="sortDropdownToggle"
+                                            value=""
+                                        />
+                                        <label
+                                            for="sortDropdownToggle"
+                                            data-toggle="dropdown"
+                                        >
+                                            <img
+                                                class="sort-button-image"
+                                                src="img/sort-amount-down-svgrepo-com (3).svg"
+                                                alt=""
+                                            />
+                                        </label>
+                                        <ul id="sortOptionsMenu">
+                                            <li data-sort="A-Z">Name (A-Z)</li>
+                                            <li data-sort="Z-A">Name (Z-A)</li>
+                                            <li data-sort="O-Y">Age (Desc)</li>
+                                            <li data-sort="Y-O">Age (ASC)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container-div">
                         <table id="table-container" class="deactive-style">
                             <thead>
                                 <tr>
@@ -274,23 +541,27 @@
                                     <th>Delete</th>
                                 </tr>
                             </thead>
-                            <tbody id="tableBody">
-                            </tbody>
+                            <tbody id="tableBody"></tbody>
                         </table>
-                </div>
+                    </div>
 
-                <div id="empty-state-default">
-                    <img src="img/empty-state-default.png" alt="">
-                    <h2>No Registraition Data</h2>
-                    <p>Please fill out and submit the form to view data here.</p>
-                </div>
+                    <div id="empty-state-default">
+                        <img src="img/empty-state-default.png" alt="" />
+                        <h2>No Registraition Data</h2>
+                        <p>
+                            Please fill out and submit the form to view data
+                            here.
+                        </p>
+                    </div>
 
-
-                <div id="empty-state-filters" class="deactive-style">
-                    <img src="https://constant.myntassets.com/web/assets/img/11488523304066-search404.png" alt="">
-                    <h2>No Matches Found</h2>
-                    <p>Please tweak the filters for better results</p>
-                </div>
+                    <div id="empty-state-filters" class="deactive-style">
+                        <img
+                            src="https://constant.myntassets.com/web/assets/img/11488523304066-search404.png"
+                            alt=""
+                        />
+                        <h2>No Matches Found</h2>
+                        <p>Please tweak the filters for better results</p>
+                    </div>
 
                     <!-- <div id="button-container" style="display: none;">
                         <button class="button-register" type="submit">
@@ -300,136 +571,211 @@
                             <img src="img/delete_24dp_EA3323_FILL0_wght400_GRAD0_opsz24.svg" alt="">
                         </button>
                     </div> -->
+                </div>
+            </div>
+        </main>
+
+        <button id="pageRefreshButton" alt="reset">
+            <img src="img/refresh_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" />
+        </button>
+
+        <div class="mobile-actions-bar deactive-style" id="mobileControls">
+            <div class="mobile-button" id="mobileFilterButton">Filters</div>
+            <div class="mobile-button" id="mobileSortButton">Sort</div>
+        </div>
+
+        <div class="mobile-overlay" id="sortOverlay">
+            <div class="overlay-backdrop"></div>
+            <div class="overlay-panel sort-panel">
+                <div class="overlay-header">
+                    <h3>Sort By</h3>
+                    <div class="close-button">
+                        <img src="img/cross.svg" alt="" />
+                    </div>
+                </div>
+                <ul class="overlay-options">
+                    <li data-sort="A-Z">Name (A-Z)</li>
+                    <li data-sort="Z-A">Name (Z-A)</li>
+                    <li data-sort="O-Y">Age (Oldest-Youngest)</li>
+                    <li data-sort="Y-O">Age (Youngest-Oldest)</li>
+                </ul>
             </div>
         </div>
-    </main>
 
-    <button id="pageRefreshButton" alt="reset">
-        <img src="img/refresh_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg">
-    </button>
-
-    <div class="mobile-actions-bar  deactive-style" id="mobileControls">
-        <div class="mobile-button" id="mobileFilterButton">Filters</div>
-        <div class="mobile-button" id="mobileSortButton">Sort</div>
-    </div>
-
-    <div class="mobile-overlay" id="sortOverlay">
-        <div class="overlay-backdrop"></div>
-        <div class="overlay-panel sort-panel">
-            <div class="overlay-header">
-                <h3>Sort By</h3>
-                <div class="close-button"><img src="img/cross.svg" alt=""></div>
-            </div>
-            <ul class="overlay-options">
-                <li data-sort="A-Z">Name (A-Z)</li>
-                <li data-sort="Z-A">Name (Z-A)</li>
-                <li data-sort="O-Y">Age (Oldest-Youngest)</li>
-                <li data-sort="Y-O">Age (Youngest-Oldest)</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="filtersOverlay" class="mobile-overlay">
-        <div class="overlay-backdrop"></div>
-        <div class="overlay-panel filters-panel">
-            <div class="overlay-header">
-                <h3>Filters</h3>
-                <button class="close-button"><img src="img/cross.svg" alt=""></button>
-            </div>
-            <div class="filter-mobile-wrapper">
-                <div class="mobile-filter-group">
-                    <div class="filter-group-content">
-                        <h4>Gender</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="mobileFilterMale">Male
-                                    <input type="checkbox" name="gender-mobile" id="mobileFilterMale" value="Male">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileFilterFemale">Female
-                                    <input type="checkbox" name="gender-mobile" id="mobileFilterFemale" value="Female">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileFilterOther">Others
-                                    <input type="checkbox" name="gender-mobile" id="mobileFilterOther" value="Others">
-                                    <span class="custom-checkbox"></span>
-                                </label>
+        <div id="filtersOverlay" class="mobile-overlay">
+            <div class="overlay-backdrop"></div>
+            <div class="overlay-panel filters-panel">
+                <div class="overlay-header">
+                    <h3>Filters</h3>
+                    <button class="close-button">
+                        <img src="img/cross.svg" alt="" />
+                    </button>
+                </div>
+                <div class="filter-mobile-wrapper">
+                    <div class="mobile-filter-group">
+                        <div class="filter-group-content">
+                            <h4>Gender</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="mobileFilterMale"
+                                        >Male
+                                        <input
+                                            type="checkbox"
+                                            name="gender-mobile"
+                                            id="mobileFilterMale"
+                                            value="Male"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileFilterFemale"
+                                        >Female
+                                        <input
+                                            type="checkbox"
+                                            name="gender-mobile"
+                                            id="mobileFilterFemale"
+                                            value="Female"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileFilterOther"
+                                        >Others
+                                        <input
+                                            type="checkbox"
+                                            name="gender-mobile"
+                                            id="mobileFilterOther"
+                                            value="Others"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="mobile-filter-group">
-                    <div class="filter-group-content">
-                        <h4>Subjects</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="mobileSubjectMaths">Maths
-                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectMaths" value="Maths">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileSubjectEnglish">English
-                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectEnglish" value="English">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileSubjectFrench">French
-                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectFrench" value="French">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileSubjectHistory">History
-                                    <input type="checkbox" name="subject-mobile" id="mobileSubjectHistory" value="History">
-                                    <span class="custom-checkbox"></span>
-                                </label>
+                    <div class="mobile-filter-group">
+                        <div class="filter-group-content">
+                            <h4>Subjects</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="mobileSubjectMaths"
+                                        >Maths
+                                        <input
+                                            type="checkbox"
+                                            name="subject-mobile"
+                                            id="mobileSubjectMaths"
+                                            value="Maths"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileSubjectEnglish"
+                                        >English
+                                        <input
+                                            type="checkbox"
+                                            name="subject-mobile"
+                                            id="mobileSubjectEnglish"
+                                            value="English"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileSubjectFrench"
+                                        >French
+                                        <input
+                                            type="checkbox"
+                                            name="subject-mobile"
+                                            id="mobileSubjectFrench"
+                                            value="French"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileSubjectHistory"
+                                        >History
+                                        <input
+                                            type="checkbox"
+                                            name="subject-mobile"
+                                            id="mobileSubjectHistory"
+                                            value="History"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="mobile-filter-group">
-                    <div class="filter-group-content">
-                        <h4>Exam Center</h4>
-                        <div class="options-container-grid">
-                            <div class="checkbox-option">
-                                <label for="mobileCenterNoida">Noida
-                                    <input type="checkbox" name="center-mobile" id="mobileCenterNoida" value="Noida">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileCenterDelhi">Delhi NCR
-                                    <input type="checkbox" name="center-mobile" id="mobileCenterDelhi" value="Delhi NCR">
-                                    <span class="custom-checkbox"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-option">
-                                <label for="mobileCenterMumbai">Mumbai
-                                    <input type="checkbox" name="center-mobile" id="mobileCenterMumbai" value="Mumbai">
-                                    <span class="custom-checkbox"></span>
-                                </label>
+                    <div class="mobile-filter-group">
+                        <div class="filter-group-content">
+                            <h4>Exam Center</h4>
+                            <div class="options-container-grid">
+                                <div class="checkbox-option">
+                                    <label for="mobileCenterNoida"
+                                        >Noida
+                                        <input
+                                            type="checkbox"
+                                            name="center-mobile"
+                                            id="mobileCenterNoida"
+                                            value="Noida"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileCenterDelhi"
+                                        >Delhi NCR
+                                        <input
+                                            type="checkbox"
+                                            name="center-mobile"
+                                            id="mobileCenterDelhi"
+                                            value="Delhi NCR"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
+                                <div class="checkbox-option">
+                                    <label for="mobileCenterMumbai"
+                                        >Mumbai
+                                        <input
+                                            type="checkbox"
+                                            name="center-mobile"
+                                            id="mobileCenterMumbai"
+                                            value="Mumbai"
+                                        />
+                                        <span class="custom-checkbox"></span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="filter-actions mobile-filter-buttons">
-                    <button id="mobileApplyFilterButton" class="action-button" type="button" >Apply</button>
-                    <button id="mobileClearFilterButton" class="action-button" type="button">Clear</button>
+                    <div class="filter-actions mobile-filter-buttons">
+                        <button
+                            id="mobileApplyFilterButton"
+                            class="action-button"
+                            type="button"
+                        >
+                            Apply
+                        </button>
+                        <button
+                            id="mobileClearFilterButton"
+                            class="action-button"
+                            type="button"
+                        >
+                            Clear
+                        </button>
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </div>
 
-    <script src="./modules/main.js "></script>
-</body>
+        <script src="./modules/main.js "></script>
+    </body>
 </html>

@@ -12,6 +12,7 @@ export function renderTable(){
     state.registrations.forEach(user => {
         // created and element to push the row data
         let row = document.createElement("tr");
+        row.setAttribute('data-id', user.id);
 
         row.innerHTML = `
                 <td>${user.firstname} ${user.lastname}</td>

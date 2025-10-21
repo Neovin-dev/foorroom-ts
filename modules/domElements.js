@@ -74,7 +74,7 @@ export const elements = {
 
 export const dynamicSelectors = {
     // Form State
-    getSelectedGender: () => document.querySelectorAll('input[name="gender"]:checked'),
+    getSelectedGender: () => document.querySelector('input[name="gender"]:checked'),
     getAllGenderRadios: () => document.querySelectorAll('input[name="gender"]'),
     // Get all checkboxes inside the registration form for a specific subject group
     getFormSubjectCheckboxes: () => document.querySelectorAll('.subject-selection-group input[type="checkbox"]'),

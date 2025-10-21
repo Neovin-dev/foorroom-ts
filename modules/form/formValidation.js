@@ -36,11 +36,19 @@ function validateDate(dob) {
     return "";
 }
 
-let subjectCheckboxes = Array.from(elements.registrationForm.querySelectorAll('input[type="checkbox"][name="maths"], input[type="checkbox"][name="english"], input[type="checkbox"][name="french"], input[type="checkbox"][name="history"]'));
 
-let isSubjectSelected = subjectCheckboxes.some(tick => tick.checked);
 
-if(!isSubjectSelected){
+function validateSubjects(event){
+
+    const subjectCheckboxes = dynamicSelectors.getFormSubjectCheckboxes();
+
+    let isSubjectSelected = Array.from(subjectCheckboxes).some(tick => tick.checked);
+
+    if (!isSubjectSelected) {
+        return 'Select atleast one subject';
+    }else {
+        '';
+    }
 }
 
 export {
@@ -48,5 +56,6 @@ export {
     validateEmail,
     validatePhone,
     validateDate,
+    validateSubjects,
 }
         
