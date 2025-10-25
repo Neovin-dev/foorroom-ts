@@ -1,4 +1,4 @@
-import { elements} from "../domElements";
+import { elements } from "../domElements";
 import * as validators from "./formValidation";
     
 export function errorHandler(event){

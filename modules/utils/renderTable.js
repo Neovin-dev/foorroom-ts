@@ -1,20 +1,21 @@
-import { elements, dynamicSelectors} from "../domElements";
+import { elements, dynamicSelectors } from "../domElements";
 import { state } from "../stateManager/state";
+import visibilityHandler from "../uiHandler/visibilityHandler";
 
-export function renderTable(){
-    // tableBody is null -> return 
-    if(!elements.tableBody) return 
+export function renderTable() {
+  // tableBody is null -> return
+  if (!elements.tableBody) return;
 
-    // 1 Clear TableBody 
-    elements.tableBody.innerHTML= ``;
+  // 1 Clear TableBody
+  elements.tableBody.innerHTML = ``;
 
-    // 2. repopulate the table
-    state.registrations.forEach(user => {
-        // created and element to push the row data
-        let row = document.createElement("tr");
-        row.setAttribute('data-id', user.id);
+  // 2. repopulate the table
+  state.registrations.forEach((user) => {
+    // created and element to push the row data
+    let row = document.createElement("tr");
+    row.setAttribute("data-id", user.id);
 
-        row.innerHTML = `
+    row.innerHTML = `
                 <td>${user.firstname} ${user.lastname}</td>
                 <td>${user.dob}</td>
                 <td>${user.email}</td>
@@ -30,8 +31,8 @@ export function renderTable(){
                 </button></td>
         `;
 
-        elements.tableBody.appendChild(row);
-    })
+    elements.tableBody.appendChild(row);
+  });
 
-    
+  visibilityHandler();
 }
