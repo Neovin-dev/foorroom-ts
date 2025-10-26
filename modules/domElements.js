@@ -19,7 +19,7 @@ export const elements = {
 
     // Error Message Spans 
     firstNameError: document.getElementById("firstNameError"),
-    lastNameeError: document.getElementById("lastNameError"),
+    lastNameError: document.getElementById("lastNameError"),
     dateOfBirthError: document.getElementById("dateOfBirthError"),
     emailAddressError: document.getElementById("emailAddressError"),
     phoneNumberError: document.getElementById("phoneNumberError"),

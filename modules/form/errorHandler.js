@@ -1,7 +1,7 @@
 import { elements } from "../domElements";
 import * as validators from "./formValidation";
     
-export function errorHandler(event){
+export function errorHandler(){
     let isFormValid = true;
     
     let firstnameVaule = elements.firstNameInput.value.trim();
@@ -24,10 +24,10 @@ export function errorHandler(event){
         elements.firstNameError.innerText = '';
     }
     if(lastNameError) {
-        elements.lastNameeError.innerText = lastNameError;
+        elements.lastNameError.innerText = lastNameError;
         isFormValid = false;
     }else {
-        elements.lastNameeError.innerText = '';
+        elements.lastNameError.innerText = '';
     }
     if(emailError){
         elements.emailAddressError.innerText = emailError; 

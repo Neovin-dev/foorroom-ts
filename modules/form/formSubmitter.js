@@ -8,7 +8,7 @@ export default function formSubmitter(event) {
   event.preventDefault();
 
   // Error Handler handle all the error messages
-  const isFormValid = errorHandler(event);
+  const isFormValid = errorHandler();
   if (!isFormValid) return;
 
   // editMode state management line276
